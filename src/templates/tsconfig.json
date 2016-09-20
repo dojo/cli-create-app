@@ -1,5 +1,5 @@
 {
-	"version": "2.0.0",
+	"version": "2.0.2",
 	"compilerOptions": {
 		"declaration": false,
 		"module": "umd",
@@ -11,15 +11,12 @@
 		"paths": {},
 		"removeComments": false,
 		"sourceMap": true,
-		"target": "es6",
+		"target": "es5",
 		"moduleResolution": "classic"
 	},
 	"include": [
 		"./typings/index.d.ts",
 		"./src/**/*.ts",
 		"./tests/**/*.ts"
-	],
-	"exclude": [
-		"./src/templates"
 	]
 }

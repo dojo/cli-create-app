@@ -1,9 +1,9 @@
-# dojo-cli-example
+# cli-create-command
 
 <!-- TODO: change and uncomment
-[![Build Status](https://travis-ci.org/dojo/<< package-name >>.svg?branch=master)](https://travis-ci.org/dojo/<< package-name >>)
-[![codecov](https://codecov.io/gh/dojo/<< package-name >>/branch/master/graph/badge.svg)](https://codecov.io/gh/dojo/<< package-name >>)
-[![npm version](https://badge.fury.io/js/dojo-<< package-name >>.svg)](http://badge.fury.io/js/dojo-<< package-name >>)
+[![Build Status](https://travis-ci.org/dojo/cli-create-command.svg?branch=master)](https://travis-ci.org/dojo/cli-create-command)
+[![codecov](https://codecov.io/gh/dojo/cli-create-command/branch/master/graph/badge.svg)](https://codecov.io/gh/dojo/cli-create-command)
+[![npm version](https://badge.fury.io/js/dojo-cli-create-command.svg)](http://badge.fury.io/js/dojo-cli-create-command)
 -->
 
 TODO: Replace with a description of this package

@@ -1,0 +1,11 @@
+[
+	[ "package.json", "destRoot" ],
+	[ "typings.json", "destRoot" ],
+	[ "tsconfig.json", "destRoot" ],
+	[ "tslint.json", "destRoot" ],
+	[ ".editorconfig", "destRoot" ],
+	[ "index.html", "destSrc" ],
+	[ "index.ts", "destSrc" ],
+	[ "app.ts", "destSrc" ],
+	[ "app.styl", "destSrc" ]
+]

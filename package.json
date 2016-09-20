@@ -1,11 +1,11 @@
 {
-  "name": "dojo-cli-create-command",
+  "name": "dojo-cli-create-app",
   "version": "2.0.0-pre",
   "description": "Command to scaffold a new command",
   "private": true,
   "homepage": "http://dojotoolkit.org",
   "bugs": {
-    "url": "https://github.com/tomdye/dojo-cli-create-command/issues"
+    "url": "https://github.com/dojo/cli-create-app/issues"
   },
   "license": "BSD-3-Clause",
   "main": "main.js",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomdye/dojo-cli-create-command.git"
+    "url": "https://github.com/dojo/cli-create-app.git"
   },
   "scripts": {
     "prepublish": "grunt peerDepInstall",
@@ -43,5 +43,9 @@
     "tslint": "^3.11.0",
     "typescript": "2.0.2",
     "yargs": "^5.0.0"
+  },
+  "dependencies": {
+    "ejs": "^2.5.2",
+    "fs-extra": "^0.30.0"
   }
 }

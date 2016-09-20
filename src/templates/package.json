@@ -1,0 +1,40 @@
+{
+  "name": "<%- appName %>",
+  "version": "0.0.0-pre",
+  "description": "A newly scaffolded Dojo 2 App",
+  "private": true,
+  "homepage": "http://<<Your homepage>>",
+  "license": "BSD-3-Clause",
+  "files": [
+    "dist",
+    "src",
+    "typings.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<<Your Repo>>.git"
+  },
+  "dependencies": {
+    "@reactivex/rxjs": "5.0.0-beta.6",
+    "dojo-actions": "^2.0.0-alpha.8",
+    "dojo-app": "^2.0.0-alpha.5",
+    "dojo-compose": "^2.0.0-beta.10",
+    "dojo-core": "^2.0.0-alpha.13",
+    "dojo-dom": "^2.0.0-alpha.5",
+    "dojo-has": "^2.0.0-alpha.4",
+    "dojo-loader": "^2.0.0-beta.5",
+    "dojo-routing": "^2.0.0-alpha.5",
+    "dojo-shim": "^2.0.0-alpha.4",
+    "dojo-stores": "^2.0.0-alpha.1",
+    "dojo-widgets": "^2.0.0-alpha.8",
+    "immutable": "^3.8.1",
+    "maquette": "^2.3.5"
+  },
+  "devDependencies": {
+    "intern": "^3.2.3",
+    "istanbul": "^0.4.3",
+    "remap-istanbul": "^0.6.4",
+    "tslint": "^3.11.0",
+    "typescript": "2.0.2"
+  }
+}
