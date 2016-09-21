@@ -5,7 +5,6 @@
 	[ "tslint.json", "." ],
 	[ ".editorconfig", "." ],
 	[ "index.html", "./src" ],
-	[ "index.ts", "./src" ],
 	[ "app.ts", "./src" ],
 	[ "app.styl", "./src/styles" ]
 ]
