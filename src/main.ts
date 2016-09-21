@@ -34,6 +34,7 @@ const command: Command = {
 		const createFilesConfig = <RenderFilesConfig> require(join(packagePath, 'config/createFilesConfig.json'));
 
 		// Make directories
+		console.info(chalk.bold('Creating Directories'));
 		try {
 			createDir(
 				appName,
@@ -51,13 +52,16 @@ const command: Command = {
 		process.chdir(appName);
 
 		// Copy files
+		console.info(chalk.bold('\nCreating Files'));
 		await renderFiles(createFilesConfig, { appName });
-		console.log('running npm install');
+
+		console.info(chalk.bold('\n Running npm install'));
 		await npmInstall();
-		console.log('running typings install');
+
+		console.info(chalk.bold('\n Running typings install'));
 		await typingsInstall();
 
-		console.info(chalk.green.bold('All done!'));
+		console.info(chalk.green.bold('\nAll done!\n'));
 
 		return Promise.resolve();
 	}
