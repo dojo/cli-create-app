@@ -1,15 +1,17 @@
-// import { get as getPath, PathId } from './path';
-// import template from './template';
+import template from './template';
+import { join } from 'path';
+const pkgDir: any = require('pkg-dir');
 
 export type RenderFilesConfig = [string, string, string, string][]
 
-export default async function (renderFilesConfig: RenderFilesConfig, renderData: any) {
-	// let renderPromises: Promise<void>[] = [];
+const packagePath = pkgDir.sync(__dirname);
 
-	await renderFilesConfig.forEach(([srcBase, srcFile, destBase, destFile]) => {
-		console.log(`${srcBase}, ${srcFile}, ${destBase}, ${destFile}`);
-		// renderPromises.push(template(getPath(srcBase, srcFile), getPath(destBase, destFile), renderData));
+export default async function (renderFilesConfig: RenderFilesConfig, renderData: any) {
+	let renderPromises: Promise<void>[] = [];
+
+	await renderFilesConfig.forEach(([fileName, destBase]) => {
+		renderPromises.push(template(join(packagePath, 'templates', fileName), join('.', ...destBase.split('/'), fileName), renderData));
 	});
 
-	// await Promise.all(renderPromises);
+	return Promise.all(renderPromises);
 };

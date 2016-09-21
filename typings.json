@@ -2,6 +2,7 @@
 	"name": "dojo-cli-example",
 	"devDependencies": {
 		"chai": "registry:npm/chai#3.5.0+20160415060238",
+		"chalk": "registry:npm/chalk#1.1.1+20160812215109",
 		"glob": "registry:npm/glob#6.0.0+20160211003958",
 		"sinon": "registry:npm/sinon#1.16.0+20160723033700",
 		"yargs": "registry:npm/yargs#5.0.0+20160907000723"

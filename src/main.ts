@@ -2,33 +2,17 @@ import { Command, Helper } from './interfaces';
 import { Argv } from 'yargs';
 import createDir from './createDir';
 import renderFiles, { RenderFilesConfig } from './renderFiles';
+import npmInstall from './npmInstall';
+import typingsInstall from './typingsInstall';
 import { join } from 'path';
-// const pkgDir = require('pkg-dir');
+import * as chalk from 'chalk';
+const pkgDir: any = require('pkg-dir');
 
 export interface CreateAppArgs extends Argv {
 	name: string;
 }
 
-export interface CreateConfig {
-	name: string;
-	modules: ModuleConfigMap;
-	typings: TypingsConfigMap;
-	globalTypings: TypingsConfigMap;
-}
-
-export interface ModuleConfigMap {
-	[ moduleId: string ]: ModuleConfig;
-}
-
-export interface ModuleConfig {
-	version: string;
-	packageLocation?: string;
-	packageName?: string;
-}
-
-export interface TypingsConfigMap {
-	[ moduleId: string ]: string;
-}
+const packagePath = pkgDir.sync(__dirname);
 
 const command: Command = {
 	description: 'Scaffolds a new command',
@@ -42,11 +26,12 @@ const command: Command = {
 
 		return helper.yargs;
 	},
-	run(helper: Helper, args: CreateAppArgs) {
+	async run(helper: Helper, args: CreateAppArgs) {
 		const appName = args.name;
 
-		// const createModulesConfig: CreateConfig = require(getPath('config', 'createModulesConfig.json'));
-		const createFilesConfig = <RenderFilesConfig> require(join(__dirname, './config/createFilesConfig.json'));
+		console.info(chalk.bold(`Creating your new app: ${appName}\n`));
+
+		const createFilesConfig = <RenderFilesConfig> require(join(packagePath, 'config/createFilesConfig.json'));
 
 		// Make directories
 		try {
@@ -63,8 +48,16 @@ const command: Command = {
 			return Promise.reject(error);
 		}
 
+		process.chdir(appName);
+
 		// Copy files
-		renderFiles(createFilesConfig, { appName } /*, createModulesConfig*/);
+		await renderFiles(createFilesConfig, { appName });
+		console.log('running npm install');
+		await npmInstall();
+		console.log('running typings install');
+		await typingsInstall();
+
+		console.info(chalk.green.bold('All done!'));
 
 		return Promise.resolve();
 	}

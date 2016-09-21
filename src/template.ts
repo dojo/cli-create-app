@@ -1,8 +1,6 @@
 import { renderFile } from 'ejs';
 import { writeFile } from 'fs-extra';
-// import * as chalk from 'chalk';
-import createDir from './createDir';
-import { dirname } from 'path';
+import * as chalk from 'chalk';
 
 function ejsRender(source: string, replacements: Object): Promise<string> {
 	return new Promise<string>((resolve, reject) => {
@@ -27,7 +25,7 @@ function writeRenderedFile(str: string, destination: string): Promise<void> {
 }
 
 export default async function (source: string, destination: string, replacements: Object): Promise<void> {
-	createDir(dirname(destination));
+	console.info(chalk.green.bold('Creating File: ') + destination);
 	const str = await ejsRender(source, replacements);
 	await writeRenderedFile(str, destination);
 };
