@@ -4,11 +4,11 @@ import createDir from './createDir';
 import renderFiles from './renderFiles';
 import npmInstall from './npmInstall';
 import changeDir from './changeDir';
-import typingsInstall from './typingsInstall';
 import { getDirectoryNames, getRenderFilesConfig } from './config';
 import * as chalk from 'chalk';
 import { existsSync } from 'fs-extra';
 import dirname from './dirname';
+const typings: any = require('typings-core');
 const pkgDir: any = require('pkg-dir');
 const packagePath = pkgDir.sync(dirname);
 
@@ -37,7 +37,7 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 	await npmInstall();
 
 	console.info(chalk.underline('\n Running typings install'));
-	await typingsInstall();
+	await typings.install({ cwd: '.'});
 
 	console.info(chalk.green.bold('\nAll done!\n'));
 
