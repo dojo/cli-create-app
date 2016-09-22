@@ -19,7 +19,6 @@
     "url": "https://github.com/dojo/cli-create-app.git"
   },
   "scripts": {
-    "prepublish": "grunt peerDepInstall",
     "test": "grunt test"
   },
   "devDependencies": {

@@ -1,25 +1,25 @@
 import { Command, Helper } from './interfaces';
 import { Argv } from 'yargs';
 import createDir from './createDir';
-import renderFiles, { RenderFilesConfig } from './renderFiles';
+import renderFiles from './renderFiles';
 import npmInstall from './npmInstall';
 import typingsInstall from './typingsInstall';
-import { join } from 'path';
+import { getDirectoryNames, getRenderFilesConfig } from './config';
 import * as chalk from 'chalk';
+import { existsSync } from 'fs-extra';
 const pkgDir: any = require('pkg-dir');
+const packagePath = pkgDir.sync(__dirname);
 
 export interface CreateAppArgs extends Argv {
 	name: string;
 }
-
-const packagePath = pkgDir.sync(__dirname);
 
 const command: Command = {
 	description: 'Scaffolds a new command',
 	register(helper: Helper) {
 		helper.yargs.option('n', {
 			alias: 'name',
-			describe: 'The App Name to create',
+			describe: 'The name of your application',
 			demand: true,
 			type: 'string'
 		});
@@ -29,36 +29,27 @@ const command: Command = {
 	async run(helper: Helper, args: CreateAppArgs) {
 		const appName = args.name;
 
-		console.info(chalk.bold(`Creating your new app: ${appName}\n`));
+		console.info(chalk.underline(`Creating your new app: ${appName}\n`));
 
-		const createFilesConfig = <RenderFilesConfig> require(join(packagePath, 'config/createFilesConfig.json'));
+		// Check app folder does not already exist
+		if (existsSync(appName)) {
+			return Promise.reject(new Error('App directory already exists'));
+		}
 
 		// Make directories
-		console.info(chalk.bold('Creating Directories'));
-		try {
-			createDir(
-				appName,
-				`${appName}/src`,
-				`${appName}/src/styles`,
-				`${appName}/tests`
-			);
-		}
-		catch (error) {
-			// Shouldn't have to console here, why doesn't CLI output this?
-			console.error(error.message);
-			return Promise.reject(error);
-		}
+		console.info(chalk.underline('Creating Directories'));
+		createDir(...getDirectoryNames(appName));
 
 		process.chdir(appName);
 
 		// Copy files
-		console.info(chalk.bold('\nCreating Files'));
-		await renderFiles(createFilesConfig, { appName });
+		console.info(chalk.underline('\nCreating Files'));
+		await renderFiles(getRenderFilesConfig(packagePath), { appName });
 
-		console.info(chalk.bold('\n Running npm install'));
+		console.info(chalk.underline('\n Running npm install'));
 		await npmInstall();
 
-		console.info(chalk.bold('\n Running typings install'));
+		console.info(chalk.underline('\n Running typings install'));
 		await typingsInstall();
 
 		console.info(chalk.green.bold('\nAll done!\n'));

@@ -2,14 +2,7 @@
   "name": "<%- appName %>",
   "version": "0.0.0-pre",
   "description": "A newly scaffolded Dojo 2 App",
-  "private": true,
   "homepage": "http://<<Your homepage>>",
-  "license": "BSD-3-Clause",
-  "files": [
-    "dist",
-    "src",
-    "typings.json"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/<<Your Repo>>.git"
