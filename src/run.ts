@@ -21,18 +21,15 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 
 	console.info(chalk.underline(`Creating your new app: ${appName}\n`));
 
-	// Check app folder does not already exist
 	if (existsSync(appName)) {
 		return Promise.reject(new Error('App directory already exists'));
 	}
 
-	// Make directories
 	console.info(chalk.underline('Creating Directories'));
 	createDir(...getDirectoryNames(appName));
 
 	changeDir(appName);
 
-	// Copy files
 	console.info(chalk.underline('\nCreating Files'));
 	await renderFiles(getRenderFilesConfig(packagePath), { appName });
 
