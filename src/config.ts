@@ -20,12 +20,12 @@ const fileNames = [
 	'src/tests/app.ts'
 ];
 
-export function getRenderFilesConfig(packagePath: string) {
+export function getRenderFilesConfig(packagePath: string): {src: string, dest: string}[] {
 	return fileNames.map((fileName) => {
 		const fileNameParts = fileName.split('/');
 		return {
 			src: join(packagePath, 'templates', ...fileNameParts),
-			dest: join('.', ...fileNameParts)
+			dest: join(...fileNameParts)
 		};
 	});
 }
