@@ -39,7 +39,6 @@
     "intern": "^3.2.3",
     "istanbul": "^0.4.3",
     "remap-istanbul": "^0.6.4",
-    "rewire": "^2.5.2",
     "sinon": "^1.17.5",
     "tslint": "^3.11.0",
     "typescript": "2.0.2",
