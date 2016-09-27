@@ -2,7 +2,7 @@ import { renderFile } from 'ejs';
 import { writeFile } from 'fs-extra';
 import * as chalk from 'chalk';
 
-function ejsRender(source: string, replacements: Object): Promise<string> {
+export function ejsRender(source: string, replacements: Object): Promise<string> {
 	return new Promise<string>((resolve, reject) => {
 		renderFile(source, replacements, (err: Error, str: string) => {
 			if (err) {
@@ -13,7 +13,7 @@ function ejsRender(source: string, replacements: Object): Promise<string> {
 	});
 }
 
-function writeRenderedFile(str: string, destination: string): Promise<void> {
+export function writeRenderedFile(str: string, destination: string): Promise<void> {
 	return new Promise<void>((resolve, reject) => {
 		writeFile(destination, str, (err?: Error) => {
 			if (err) {
