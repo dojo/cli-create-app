@@ -25,19 +25,24 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 		return Promise.reject(new Error('App directory already exists'));
 	}
 
-	console.info(chalk.underline('Creating Directories'));
-	createDir(...getDirectoryNames(appName));
+	try {
+		console.info(chalk.underline('Creating Directories'));
+		createDir(...getDirectoryNames(appName));
 
-	changeDir(appName);
+		changeDir(appName);
 
-	console.info(chalk.underline('\nCreating Files'));
-	await renderFiles(getRenderFilesConfig(packagePath), { appName });
+		console.info(chalk.underline('\nCreating Files'));
+		await renderFiles(getRenderFilesConfig(packagePath), { appName });
 
-	console.info(chalk.underline('\n Running npm install'));
-	await npmInstall();
+		console.info(chalk.underline('\n Running npm install'));
+		await npmInstall();
 
-	console.info(chalk.underline('\n Running typings install'));
-	await typings.install({ cwd: '.'});
+		console.info(chalk.underline('\n Running typings install'));
+		await typings.install({ cwd: '.'});
+	}
+	catch (error) {
+		return Promise.reject(error);
+	}
 
 	console.info(chalk.green.bold('\nAll done!\n'));
 
