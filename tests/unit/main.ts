@@ -2,25 +2,29 @@ import * as registerSuite from 'intern!object';
 import * as assert from 'intern/chai!assert';
 import * as mockery from 'mockery';
 
-mockery.enable({
-	warnOnUnregistered: false
-});
-
-const runStub = () => {};
-mockery.registerMock('./run', {
-	'default': runStub
-});
-
 const registerStub = () => {};
-mockery.registerMock('./register', {
-	'default': registerStub
-});
-
-const main: any = require('intern/dojo/node!./../../src/main');
+const runStub = () => {};
+let main: any;
 
 registerSuite({
 	name: 'main',
+	'setup'() {
+		mockery.enable({
+			warnOnUnregistered: false
+		});
+
+		mockery.registerMock('./run', {
+			'default': runStub
+		});
+
+		mockery.registerMock('./register', {
+			'default': registerStub
+		});
+
+		main = require('intern/dojo/node!./../../src/main');
+	},
 	'teardown'() {
+		mockery.deregisterAll();
 		mockery.disable();
 	},
 	'Should return a command matching the interface'() {

@@ -8,6 +8,7 @@ import { getDirectoryNames, getRenderFilesConfig } from './config';
 import * as chalk from 'chalk';
 import { existsSync } from 'fs-extra';
 import dirname from './dirname';
+
 const typings: any = require('typings-core');
 const pkgDir: any = require('pkg-dir');
 const packagePath = pkgDir.sync(dirname);

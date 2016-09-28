@@ -4,36 +4,35 @@ import { SinonStub, stub } from 'sinon';
 import * as mockery from 'mockery';
 
 const templateStub: SinonStub = stub();
-
-mockery.enable({
-	warnOnUnregistered: false
-});
-
-mockery.registerMock('./template', {
-	'default': templateStub
-});
-
-const renderFiles: any = require('intern/dojo/node!./../../src/renderFiles');
-
 const testRenderData = {
 	'appName': 'testName'
 };
-
 const testFilesConfig = [
 	{ src: 'test/a', dest: 'dest/a' },
 	{ src: 'test/b', dest: 'dest/b' }
 ];
 
+let renderFiles: any;
+
 registerSuite({
 	name: 'renderFiles',
-	'beforeEach'() {
-		templateStub.reset();
-	},
-	'afterEach'() {
+	'setup'() {
+		mockery.enable({
+			warnOnUnregistered: false
+		});
 
+		mockery.registerMock('./template', {
+			'default': templateStub
+		});
+
+		renderFiles = require('intern/dojo/node!./../../src/renderFiles');
 	},
 	'teardown'() {
+		mockery.deregisterAll();
 		mockery.disable();
+	},
+	'beforeEach'() {
+		templateStub.reset();
 	},
 	async 'Should call template for each file in the config'() {
 		await renderFiles.default(testFilesConfig, testRenderData);
