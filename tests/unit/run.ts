@@ -41,7 +41,7 @@ registerSuite({
 			'getDirectoryNames': getDirectoryNamesStub,
 			'getRenderFilesConfig': getRenderFilesConfigStub
 		});
-		mockery.registerMock('typings', { 'install': typingsInstallStub });
+		mockery.registerMock('typings-core', { 'install': typingsInstallStub });
 		mockery.registerMock('pkg-dir', { 'sync': pkgDirStub });
 
 		run = (<ESModule> require('intern/dojo/node!./../../src/run')).default;
