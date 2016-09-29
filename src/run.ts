@@ -26,28 +26,21 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 		return Promise.reject(new Error('App directory already exists'));
 	}
 
-	try {
-		console.info(chalk.underline('Creating Directories'));
-		createDir(...getDirectoryNames(appName));
+	console.info(chalk.underline('Creating Directories'));
+	createDir(...getDirectoryNames(appName));
 
-		changeDir(appName);
+	changeDir(appName);
 
-		console.info(chalk.underline('\nCreating Files'));
-		await renderFiles(getRenderFilesConfig(packagePath), { appName });
+	console.info(chalk.underline('\nCreating Files'));
+	await renderFiles(getRenderFilesConfig(packagePath), { appName });
 
-		console.info(chalk.underline('\nRunning npm install'));
-		await npmInstall();
-		console.info(chalk.green.bold(' completed ') + 'npm install');
+	console.info(chalk.underline('\nRunning npm install'));
+	await npmInstall();
+	console.info(chalk.green.bold(' completed ') + 'npm install');
 
-		console.info(chalk.underline('\nRunning typings install'));
-		await typings.install({ cwd: '.'});
-		console.info(chalk.green.bold(' completed ') + 'typings install');
-	}
-	catch (error) {
-		return Promise.reject(error);
-	}
+	console.info(chalk.underline('\nRunning typings install'));
+	await typings.install({ cwd: '.'});
+	console.info(chalk.green.bold(' completed ') + 'typings install');
 
 	console.info(chalk.green.bold('\nAll done!\n'));
-
-	return Promise.resolve();
 }

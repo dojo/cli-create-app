@@ -5,8 +5,8 @@ export type RenderFilesConfig = {
 	dest: string;
 }[];
 
-export default async function (renderFilesConfig: RenderFilesConfig, renderData: any) {
-	await renderFilesConfig.forEach(({ src, dest }) => {
+export default function (renderFilesConfig: RenderFilesConfig, renderData: any) {
+	renderFilesConfig.forEach(({ src, dest }) => {
 		template(src, dest, renderData);
 	});
 };
