@@ -21,6 +21,6 @@
     "intern": "^3.2.3",
     "istanbul": "^0.4.3",
     "remap-istanbul": "^0.6.4",
-    "typescript": "^2.0.3",
+    "typescript": "~2.0.3",
   }
 }
