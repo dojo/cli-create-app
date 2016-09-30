@@ -1,20 +1,21 @@
-# dojo-cli-example
+# cli-create-app
 
 <!-- TODO: change and uncomment
-[![Build Status](https://travis-ci.org/dojo/<< package-name >>.svg?branch=master)](https://travis-ci.org/dojo/<< package-name >>)
-[![codecov](https://codecov.io/gh/dojo/<< package-name >>/branch/master/graph/badge.svg)](https://codecov.io/gh/dojo/<< package-name >>)
-[![npm version](https://badge.fury.io/js/dojo-<< package-name >>.svg)](http://badge.fury.io/js/dojo-<< package-name >>)
+[![Build Status](https://travis-ci.org/dojo/cli-create-app.svg?branch=master)](https://travis-ci.org/dojo/cli-create-app)
+[![codecov](https://codecov.io/gh/dojo/cli-create-app/branch/master/graph/badge.svg)](https://codecov.io/gh/dojo/cli-create-app)
+[![npm version](https://badge.fury.io/js/dojo-cli-create-app.svg)](http://badge.fury.io/js/dojo-cli-create-app)
 -->
 
-TODO: Replace with a description of this package
+The `create app` command for the `dojo cli`.
 
 ## Features
 
-TODO: Add sections on features of this package
+Will create a new app folder and scaffold an app within it.
 
 ## How do I use this package?
 
-TODO: Add appropriate usage and instruction guidelines
+- Install globally alongside `dojo cli`
+- Run using `dojo create [app] -name <appName>`
 
 ## How do I contribute?
 
@@ -27,26 +28,12 @@ Test cases MUST be written using [Intern](https://theintern.github.io) using the
 
 90% branch coverage MUST be provided for all code submitted to this repository, as reported by istanbul’s combined coverage results for all supported platforms.
 
-To test locally in node run:
+To test locally run:
 
 `grunt test`
 
-To test against browsers with a local selenium server run:
-
-`grunt test:local`
-
-To test against BrowserStack or Sauce Labs run:
-
-`grunt test:browserstack`
-
-or
-
-`grunt test:saucelabs`
-
 ## Licensing information
 
-TODO: If third-party code was used to write this library, make a list of project names and licenses here
-
-* [Third-party lib one](https//github.com/foo/bar) ([New BSD](http://opensource.org/licenses/BSD-3-Clause))
+([New BSD](http://opensource.org/licenses/BSD-3-Clause))
 
 © 2004–2016 Dojo Foundation & contributors. [New BSD](http://opensource.org/licenses/BSD-3-Clause) license.

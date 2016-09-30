@@ -1,11 +1,11 @@
 {
-  "name": "dojo-cli-create-command",
+  "name": "dojo-cli-create-app",
   "version": "2.0.0-pre",
   "description": "Command to scaffold a new command",
   "private": true,
   "homepage": "http://dojotoolkit.org",
   "bugs": {
-    "url": "https://github.com/tomdye/dojo-cli-create-command/issues"
+    "url": "https://github.com/dojo/cli-create-app/issues"
   },
   "license": "BSD-3-Clause",
   "main": "main.js",
@@ -16,14 +16,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomdye/dojo-cli-create-command.git"
+    "url": "https://github.com/dojo/cli-create-app.git"
   },
   "scripts": {
-    "prepublish": "grunt peerDepInstall",
     "test": "grunt test"
   },
   "devDependencies": {
     "codecov.io": "0.1.6",
+    "dojo-cli": "^2.0.0-alpha.3",
     "dojo-loader": ">=2.0.0-beta",
     "dts-generator": "~1.7.0",
     "glob": "^7.0.3",
@@ -38,10 +38,19 @@
     "grunt-typings": ">=0.1.5",
     "intern": "^3.2.3",
     "istanbul": "^0.4.3",
+    "mockery": "^1.7.0",
     "remap-istanbul": "^0.6.4",
     "sinon": "^1.17.5",
     "tslint": "^3.11.0",
-    "typescript": "2.0.2",
+    "typescript": "~2.0.3",
     "yargs": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "cross-spawn": "^4.0.0",
+    "ejs": "^2.5.2",
+    "fs-extra": "^0.30.0",
+    "pkg-dir": "^1.0.0",
+    "typings-core": "^1.4.1"
   }
 }

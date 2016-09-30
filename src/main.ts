@@ -1,14 +1,11 @@
-import { Command, Helper } from './interfaces';
-import { Argv } from 'yargs';
+import { Command } from 'dojo-cli/interfaces';
+import register from './register';
+import run from './run';
 
 const command: Command = {
 	description: 'Scaffolds a new command',
-	register(helper) {
-		return helper.yargs;
-	},
-	run(helper: Helper, args: Argv) {
-		return Promise.resolve();
-	}
+	register,
+	run
 };
 
 export default command;
