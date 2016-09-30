@@ -27,14 +27,12 @@ registerSuite({
 		writeFileStub.restore();
 		mkdirsStub.restore();
 	},
-	'can render ejs file'() {
-		return template(testEjsSrc, testDest, { value }).then(function () {
-			assert.strictEqual(writeFileStub.firstCall.args[1], value);
-		});
+	async 'can render ejs file'() {
+		await template(testEjsSrc, testDest, { value });
+		assert.strictEqual(writeFileStub.firstCall.args[1].trim(), value);
 	},
-	'write file is called with dest path'() {
-		return template(testEjsSrc, testDest, { value }).then(function () {
-			assert.strictEqual(writeFileStub.firstCall.args[0], testDest);
-		});
+	async 'write file is called with dest path'() {
+		await template(testEjsSrc, testDest, { value });
+		assert.strictEqual(writeFileStub.firstCall.args[0], testDest);
 	}
 });

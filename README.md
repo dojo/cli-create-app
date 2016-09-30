@@ -28,9 +28,9 @@ Test cases MUST be written using [Intern](https://theintern.github.io) using the
 
 90% branch coverage MUST be provided for all code submitted to this repository, as reported by istanbul’s combined coverage results for all supported platforms.
 
-To test locally in node run:
+To test locally run:
 
-`grunt test:node`
+`grunt test`
 
 ## Licensing information
 
