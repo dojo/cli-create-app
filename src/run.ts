@@ -32,7 +32,7 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 	changeDir(appName);
 
 	console.info(chalk.underline('\nCreating Files'));
-	await renderFiles(getRenderFilesConfig(packagePath), { appName });
+	renderFiles(getRenderFilesConfig(packagePath), { appName });
 
 	console.info(chalk.underline('\nRunning npm install'));
 	await npmInstall();
