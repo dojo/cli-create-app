@@ -14,10 +14,10 @@ const fileNames = [
 	'typings.json',
 	'tsconfig.json',
 	'src/index.html',
-	'src/app.ts',
-	'src/styles/app.styl',
-	'src/tests/all.ts',
-	'src/tests/app.ts'
+	'src/main.ts',
+	'src/main.styl',
+	'tests/all.ts',
+	'tests/main.ts'
 ];
 
 export function getRenderFilesConfig(packagePath: string): {src: string, dest: string}[] {
