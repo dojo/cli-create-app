@@ -1,6 +1,6 @@
 {
   "name": "dojo-cli-create-app",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-pre",
   "description": "Command to scaffold a new command",
   "private": true,
   "homepage": "http://dojotoolkit.org",
