@@ -37,7 +37,6 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 
 	console.info(chalk.underline('\nRunning npm install'));
 	await npmInstall();
-	console.info(chalk.green.bold(' completed ') + 'npm install');
 
 	console.info(chalk.underline('\nRunning typings install'));
 	await typings.install({ cwd: path.resolve('.') });
