@@ -1,4 +1,5 @@
 import { Argv } from 'yargs';
+import * as path from 'path';
 import { Helper } from 'dojo-cli/interfaces';
 import createDir from './createDir';
 import renderFiles from './renderFiles';
@@ -39,7 +40,7 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 	console.info(chalk.green.bold(' completed ') + 'npm install');
 
 	console.info(chalk.underline('\nRunning typings install'));
-	await typings.install({ cwd: '.'});
+	await typings.install({ cwd: path.resolve('.') });
 	console.info(chalk.green.bold(' completed ') + 'typings install');
 
 	console.info(chalk.green.bold('\nAll done!\n'));
