@@ -3,6 +3,7 @@ import * as assert from 'intern/chai!assert';
 import { getHelperStub } from '../support/testHelper';
 import { Helper } from 'dojo-cli/interfaces';
 import * as mockery from 'mockery';
+import * as path from 'path';
 import { SinonStub, stub } from 'sinon';
 
 type ESModule = {
@@ -103,6 +104,7 @@ registerSuite({
 	async 'Should run typingsInstall'() {
 		await run(helperStub, args);
 		assert.isTrue(typingsInstallStub.calledOnce);
+		assert.isTrue(typingsInstallStub.calledWith({ cwd: path.resolve('.') }));
 		assert.isTrue(typingsInstallStub.calledAfter(npmInstallStub));
 	}
 });
