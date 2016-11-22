@@ -25,7 +25,7 @@
     "@types/node": "^6.0.46",
     "chai": "^3.5.0",
     "dojo-cli-build-webpack": "^2.0.0-alpha.5",
-    "intern": "^3.2.3",
+    "intern": "^3.4.1",
     "istanbul": "^0.4.3",
     "remap-istanbul": "^0.6.4",
     "typescript": "~2.0.3"
