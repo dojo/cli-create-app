@@ -1,6 +1,6 @@
 import * as registerSuite from 'intern!object';
 import * as assert from 'intern/chai!assert';
-import { getDirectoryNames, getRenderFilesConfig } from 'src/config';
+import { getDirectoryNames, getRenderFilesConfig } from './../../src/config';
 import * as path from 'path';
 import { spy, SinonSpy } from 'sinon';
 

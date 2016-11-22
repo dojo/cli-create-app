@@ -7,12 +7,10 @@
 		"noImplicitThis": true,
 		"strictNullChecks": true,
 		"outDir": "_build/",
-		"baseUrl": "node_modules",
-		"paths": {},
 		"removeComments": false,
 		"sourceMap": true,
 		"target": "es6",
-		"moduleResolution": "classic"
+		"moduleResolution": "node"
 	},
 	"include": [
 		"./typings/index.d.ts",

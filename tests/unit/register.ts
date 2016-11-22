@@ -1,6 +1,6 @@
 import * as registerSuite from 'intern!object';
 import * as assert from 'intern/chai!assert';
-import register from 'src/register';
+import register from './../../src/register';
 import { getHelperStub } from '../support/testHelper';
 import { Helper } from 'dojo-cli/interfaces';
 import { SinonStub, stub } from 'sinon';

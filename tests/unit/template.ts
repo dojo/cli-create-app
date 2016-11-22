@@ -1,6 +1,6 @@
 import * as registerSuite from 'intern!object';
 import * as assert from 'intern/chai!assert';
-import template from 'src/template';
+import template from './../../src/template';
 import * as fs from 'fs-extra';
 import { stub, SinonStub } from 'sinon';
 
