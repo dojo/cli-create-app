@@ -1,6 +1,6 @@
 import * as registerSuite from 'intern!object';
 import * as assert from 'intern/chai!assert';
-import createDir from 'src/createDir';
+import createDir from './../../src/createDir';
 import * as fs from 'fs-extra';
 import { stub, SinonStub } from 'sinon';
 

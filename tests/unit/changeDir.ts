@@ -1,6 +1,6 @@
 import * as registerSuite from 'intern!object';
 import * as assert from 'intern/chai!assert';
-import changeDir from 'src/changeDir';
+import changeDir from '../../src/changeDir';
 import { stub, SinonStub } from 'sinon';
 
 let changeDirStub: SinonStub;
