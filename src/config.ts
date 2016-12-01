@@ -5,6 +5,7 @@ export function getDirectoryNames(appName: string): string[] {
 		appName,
 		`${appName}/src`,
 		`${appName}/src/styles`,
+		`${appName}/src/widgets`,
 		`${appName}/tests`
 	];
 }
@@ -16,6 +17,7 @@ const fileNames = [
 	'src/index.html',
 	'src/main.ts',
 	'src/main.styl',
+	'src/widgets/createHelloWorld.ts',
 	'tests/all.ts',
 	'tests/main.ts'
 ];
