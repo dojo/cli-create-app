@@ -6,7 +6,9 @@ export function getDirectoryNames(appName: string): string[] {
 		`${appName}/src`,
 		`${appName}/src/styles`,
 		`${appName}/src/widgets`,
-		`${appName}/tests`
+		`${appName}/tests`,
+		`${appName}/tests/unit`,
+		`${appName}/tests/functional`
 	];
 }
 
@@ -18,8 +20,10 @@ const fileNames = [
 	'src/main.ts',
 	'src/main.styl',
 	'src/widgets/createHelloWorld.ts',
-	'tests/all.ts',
-	'tests/main.ts'
+	'tests/unit/all.ts',
+	'tests/unit/main.ts',
+	'tests/functional/all.ts',
+	'tests/functional/main.ts'
 ];
 
 export function getRenderFilesConfig(packagePath: string): {src: string, dest: string}[] {

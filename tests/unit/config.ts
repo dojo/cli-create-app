@@ -18,7 +18,7 @@ registerSuite({
 	},
 	'Should return directory names to create inside the specified app name'() {
 		const folderNames = getDirectoryNames(appName);
-		assert.equal(5, folderNames.length, 'length');
+		assert.equal(7, folderNames.length, 'length');
 		folderNames.forEach((folderName: string) => {
 			assert.isTrue(folderName.indexOf(appName) === 0, 'folder name should be within app folder');
 		});

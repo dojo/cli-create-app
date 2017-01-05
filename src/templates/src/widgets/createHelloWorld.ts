@@ -1,10 +1,10 @@
 import createWidgetBase from 'dojo-widgets/createWidgetBase';
-import d from 'dojo-widgets/d';
+import { v } from 'dojo-widgets/d';
 
 const createHelloWorld = createWidgetBase.override({
 	getChildrenNodes() {
 		return [
-			d('div', [ 'Hello, Dojo World!' ])
+			v('div', [ 'Hello, Dojo World!' ])
 		];
 	}
 });
