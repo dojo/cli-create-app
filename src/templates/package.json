@@ -23,11 +23,12 @@
     "@types/glob": "~5.0.0",
     "@types/grunt": "~0.4.0",
     "@types/node": "^6.0.46",
+    "dojo-loader": ">=2.0.0-beta",
     "chai": "^3.5.0",
     "dojo-cli-build-webpack": "^2.0.0-alpha.6",
     "intern": "3.3.2",
     "istanbul": "^0.4.3",
     "remap-istanbul": "^0.6.4",
-    "typescript": "~2.0.3"
+    "typescript": "~2.1.4"
   }
 }
