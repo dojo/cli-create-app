@@ -1,4 +1,4 @@
-import { Command } from 'dojo-cli/interfaces';
+import { Command } from '@dojo/cli/interfaces';
 import register from './register';
 import run from './run';
 

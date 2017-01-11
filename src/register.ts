@@ -1,4 +1,4 @@
-import { Helper } from 'dojo-cli/interfaces';
+import { Helper } from '@dojo/cli/interfaces';
 import { Yargs } from 'yargs';
 
 export default function(helper: Helper): Yargs {

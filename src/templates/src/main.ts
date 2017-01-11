@@ -1,5 +1,5 @@
-import createProjector from 'dojo-widgets/createProjector';
-import { w } from 'dojo-widgets/d';
+import createProjector from '@dojo/widgets/createProjector';
+import { w } from '@dojo/widgets/d';
 import createHelloWorld from './widgets/createHelloWorld';
 
 const root = document.querySelector('my-app') || undefined;
