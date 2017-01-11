@@ -3,7 +3,7 @@
 <!-- TODO: change and uncomment
 [![Build Status](https://travis-ci.org/dojo/cli-create-app.svg?branch=master)](https://travis-ci.org/dojo/cli-create-app)
 [![codecov](https://codecov.io/gh/dojo/cli-create-app/branch/master/graph/badge.svg)](https://codecov.io/gh/dojo/cli-create-app)
-[![npm version](https://badge.fury.io/js/dojo-cli-create-app.svg)](http://badge.fury.io/js/dojo-cli-create-app)
+[![npm version](https://badge.fury.io/js/@dojo/cli-create-app.svg)](http://badge.fury.io/js/@dojo/cli-create-app)
 -->
 
 The `create app` command for the `dojo cli`.
