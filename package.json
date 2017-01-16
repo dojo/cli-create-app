@@ -1,5 +1,5 @@
 {
-  "name": "dojo-cli-create-app",
+  "name": "@dojo/cli-create-app",
   "version": "2.0.0-pre",
   "description": "Command to scaffold a new command",
   "private": true,
@@ -32,8 +32,8 @@
     "@types/node": "^6.0.49",
     "@types/sinon": "^1.16.32",
     "codecov.io": "0.1.6",
-    "dojo-cli": "^2.0.0-alpha.3",
-    "dojo-loader": ">=2.0.0-beta",
+    "@dojo/cli": "2.0.0-alpha.8",
+    "@dojo/loader": "2.0.0-beta.9",
     "dts-generator": "~1.7.0",
     "glob": "^7.0.3",
     "grunt": "~1.0.1",

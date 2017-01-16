@@ -1,5 +1,5 @@
-import createWidgetBase from 'dojo-widgets/createWidgetBase';
-import { v } from 'dojo-widgets/d';
+import createWidgetBase from '@dojo/widgets/createWidgetBase';
+import { v } from '@dojo/widgets/d';
 
 const createHelloWorld = createWidgetBase.override({
 	getChildrenNodes() {
