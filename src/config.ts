@@ -18,7 +18,7 @@ const fileNames = [
 	'tsconfig.json',
 	'src/index.html',
 	'src/main.ts',
-	'src/main.styl',
+	'src/main.css',
 	'src/widgets/createHelloWorld.ts',
 	'tests/unit/all.ts',
 	'tests/unit/main.ts',
