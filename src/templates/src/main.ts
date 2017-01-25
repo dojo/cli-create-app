@@ -1,11 +1,9 @@
-import createProjector from '@dojo/widgets/createProjector';
-import { w } from '@dojo/widgets/d';
+import createProjectorMixin from '@dojo/widget-core/mixins/createProjectorMixin';
 import createHelloWorld from './widgets/createHelloWorld';
 
 const root = document.querySelector('my-app') || undefined;
-const projector = createProjector({ root });
 
-projector.children = [ w(createHelloWorld, {}) ];
+const projector = createHelloWorld.mixin(createProjectorMixin)({ root });
 
 projector.append().then(() => {
 	console.log('Attached!');
