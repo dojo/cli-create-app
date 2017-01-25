@@ -22,6 +22,7 @@
     "@dojo/loader": "2.0.0-beta.9",
     "chai": "^3.5.0",
     "@dojo/cli-build-webpack": "2.0.0-alpha.9",
+    "@dojo/cli-test-intern": "2.0.0-alpha.1",
     "intern": "3.3.2",
     "istanbul": "^0.4.3",
     "remap-istanbul": "^0.6.4",
