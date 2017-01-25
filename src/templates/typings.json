@@ -1,7 +1,6 @@
 {
 	"name": "<%- appName %>",
 	"globalDependencies": {
-		"extra-rxjs": "github:dojo/typings/custom/dojo2-extras/rxjs.d.ts#004fc065b3b24412c9b6575cdc06545964c370b5",
 		"symbol-shim": "github:dojo/typings/custom/symbol-shim/symbol-shim.d.ts#003aa24b3448804a2c59e9a1d9740ca56e067e79"
 	},
 	"globalDevDependencies": {

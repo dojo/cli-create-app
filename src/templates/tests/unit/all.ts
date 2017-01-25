@@ -1,1 +1,1 @@
-import './main';
+import './widgets/all';
