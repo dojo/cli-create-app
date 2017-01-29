@@ -2,7 +2,6 @@ import * as registerSuite from 'intern!object';
 import * as assert from 'intern/chai!assert';
 import register from './../../src/register';
 import * as sinon from 'sinon';
-import { getHelperStub } from '../support/testHelper';
 
 let sandbox: sinon.SinonSandbox;
 
@@ -16,13 +15,13 @@ registerSuite({
 	},
 	'Should add a yargs option for name'() {
 		const options = sandbox.stub();
-		register(getHelperStub<any>(), options);
+		register(options);
 		assert.isTrue(options.calledOnce);
 		assert.isTrue(options.firstCall.calledWithMatch('n', { 'alias': 'name' }));
 	},
 	'Should demand the name option'() {
 		const options = sandbox.stub();
-		register(getHelperStub<any>(), options);
+		register(options);
 		assert.isTrue(options.firstCall.calledWithMatch('n', { 'demand': true }));
 	}
 });
