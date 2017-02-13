@@ -1,13 +1,10 @@
-import { Helper } from '@dojo/cli/interfaces';
-import { Yargs } from 'yargs';
+import { OptionsHelper } from '@dojo/cli/interfaces';
 
-export default function(helper: Helper): Yargs {
-	helper.yargs.option('n', {
+export default function(options: OptionsHelper): void {
+	options('n', {
 		alias: 'name',
 		describe: 'The name of your application',
 		demand: true,
 		type: 'string'
 	});
-
-	return helper.yargs;
 }

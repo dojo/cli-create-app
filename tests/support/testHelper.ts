@@ -9,6 +9,10 @@ export function getHelperStub<T>(): Helper {
 		command: {
 			run: stub().returns(Promise.resolve()),
 			exists: stub().returns(true)
+		},
+		configuration: {
+			save: stub().returns(Promise.resolve()),
+			get: stub().returns(Promise.resolve())
 		}
 	};
 };
