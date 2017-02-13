@@ -24,8 +24,6 @@
     "@dojo/cli-build-webpack": "2.0.0-alpha.10",
     "@dojo/cli-test-intern": "2.0.0-alpha.1",
     "intern": "3.3.2",
-    "istanbul": "^0.4.3",
-    "remap-istanbul": "^0.6.4",
     "typescript": "rc"
   }
 }
