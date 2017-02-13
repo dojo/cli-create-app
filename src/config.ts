@@ -20,11 +20,11 @@ const fileNames = [
 	'src/index.html',
 	'src/main.ts',
 	'src/main.css',
-	'src/widgets/createHelloWorld.ts',
+	'src/widgets/HelloWorld.ts',
 	'tests/unit/all.ts',
 	'tests/unit/main.ts',
 	'tests/unit/widgets/all.ts',
-	'tests/unit/widgets/createHelloWorld.ts',
+	'tests/unit/widgets/HelloWorld.ts',
 	'tests/functional/all.ts',
 	'tests/functional/main.ts'
 ];
