@@ -10,8 +10,6 @@ registerSuite({
 
 		const vnode = <VNode> helloWorld.__render__();
 		assert.strictEqual(vnode.vnodeSelector, 'div');
-		assert.lengthOf(vnode.children, 1);
-		assert.equal(vnode.children![0].vnodeSelector, 'div');
-		assert.equal(vnode.children![0].text, 'Hello, Dojo World!');
+		assert.equal(vnode.text, 'Hello, Dojo World!');
 	}
 });
