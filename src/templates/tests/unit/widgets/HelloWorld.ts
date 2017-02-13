@@ -4,7 +4,7 @@ import { VNode } from '@dojo/interfaces/vdom';
 import HelloWorld from '../../../src/widgets/HelloWorld';
 
 registerSuite({
-	name: 'createHelloWorld',
+	name: 'HelloWorld',
 	'render'() {
 		const helloWorld = new HelloWorld({});
 
