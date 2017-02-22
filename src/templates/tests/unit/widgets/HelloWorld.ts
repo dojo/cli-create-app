@@ -6,7 +6,7 @@ import HelloWorld from '../../../src/widgets/HelloWorld';
 registerSuite({
 	name: 'HelloWorld',
 	'render'() {
-		const helloWorld = new HelloWorld({});
+		const helloWorld = new HelloWorld();
 
 		const vnode = <VNode> helloWorld.__render__();
 		assert.strictEqual(vnode.vnodeSelector, 'div');
