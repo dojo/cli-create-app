@@ -12,7 +12,7 @@ export const proxyUrl = 'http://localhost:9000/';
 export const capabilities = {
 	'browserstack.debug': false,
 	project: 'Dojo 2',
-	name: '@dojo/cli-example'
+	name: '@dojo/cli-create-app'
 };
 
 // Support running unit tests from a web server that isn't the intern proxy
@@ -35,6 +35,7 @@ export const loaderOptions = {
 	// Packages that should be registered with the loader in each testing environment
 	packages: [
 		{ name: 'src', location: '_build/src' },
+		{ name: 'grunt-dojo2', location: 'node_modules/grunt-dojo2'},
 		{ name: 'tests', location: '_build/tests' }
 	]
 };

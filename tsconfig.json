@@ -9,7 +9,8 @@
 		"removeComments": false,
 		"sourceMap": true,
 		"target": "es6",
-		"moduleResolution": "node"
+		"moduleResolution": "node",
+		"types": [ "intern" ]
 	},
 	"include": [
 		"./typings/index.d.ts",
