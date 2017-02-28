@@ -1,5 +1,4 @@
 import { Argv } from 'yargs';
-import * as path from 'path';
 import { Helper } from '@dojo/cli/interfaces';
 import createDir from './createDir';
 import renderFiles from './renderFiles';
@@ -10,7 +9,6 @@ import * as chalk from 'chalk';
 import { existsSync } from 'fs-extra';
 import dirname from './dirname';
 
-const typings: any = require('typings-core');
 const pkgDir: any = require('pkg-dir');
 const packagePath = pkgDir.sync(dirname);
 
@@ -37,10 +35,6 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 
 	console.info(chalk.underline('\nRunning npm install'));
 	await npmInstall();
-
-	console.info(chalk.underline('\nRunning typings install'));
-	await typings.install({ cwd: path.resolve('.') });
-	console.info(chalk.green.bold(' completed ') + 'typings install');
 
 	console.info(chalk.green.bold('\nAll done!\n'));
 }

@@ -3,7 +3,6 @@ import * as assert from 'intern/chai!assert';
 import { getHelperStub } from '../support/testHelper';
 import { Helper } from '@dojo/cli/interfaces';
 import * as mockery from 'mockery';
-import * as path from 'path';
 import { SinonStub, stub } from 'sinon';
 
 type ESModule = {
@@ -42,7 +41,6 @@ registerSuite({
 			'getDirectoryNames': getDirectoryNamesStub,
 			'getRenderFilesConfig': getRenderFilesConfigStub
 		});
-		mockery.registerMock('typings-core', { 'install': typingsInstallStub });
 		mockery.registerMock('pkg-dir', { 'sync': pkgDirStub });
 
 		run = (<ESModule> require('intern/dojo/node!./../../src/run')).default;
@@ -100,11 +98,5 @@ registerSuite({
 		await run(helperStub, args);
 		assert.isTrue(npmInstallStub.calledOnce);
 		assert.isTrue(npmInstallStub.calledAfter(renderFilesStub));
-	},
-	async 'Should run typingsInstall'() {
-		await run(helperStub, args);
-		assert.isTrue(typingsInstallStub.calledOnce);
-		assert.isTrue(typingsInstallStub.calledWith({ cwd: path.resolve('.') }));
-		assert.isTrue(typingsInstallStub.calledAfter(npmInstallStub));
 	}
 });
