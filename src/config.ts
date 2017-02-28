@@ -15,7 +15,6 @@ export function getDirectoryNames(appName: string): string[] {
 
 const fileNames = [
 	'package.json',
-	'typings.json',
 	'tsconfig.json',
 	'src/index.html',
 	'src/main.ts',
