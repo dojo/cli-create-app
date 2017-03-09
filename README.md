@@ -6,21 +6,43 @@
 
 The `create app` command for the `dojo cli`.
 
+- [Usage](#usage)
+- [Features](#features)
+- [How do I contribute?](#how-do-i-contribute)
+  - [Installation](#installation)
+  - [Testing](#testing)
+- [Licensing information](#licensing-information)
+
+## Usage
+
+To use `@dojo/cli-create-app`, install the project globally along side `dojo cli`:
+
+```bash
+npm install -g @dojo/cli-create-app
+```
+
+Run using:
+
+```bash
+dojo create [app] -name <appName>
+```
+
 ## Features
 
 Will create a new app folder and scaffold an app within it.
-
-## How do I use this package?
-
-- Install globally alongside `dojo cli`
-- Run using `dojo create [app] -name <appName>`
 
 ## How do I contribute?
 
 We appreciate your interest!  Please see the [Dojo 2 Meta Repository](https://github.com/dojo/meta#readme) for the
 Contributing Guidelines and Style Guide.
 
-## Testing
+### Installation
+
+To start working with this package, clone the repository and run `npm install`.
+
+In order to build the project run `grunt dev` or `grunt dist`.
+
+### Testing
 
 Test cases MUST be written using [Intern](https://theintern.github.io) using the Object test interface and Assert assertion interface.
 
@@ -32,6 +54,4 @@ To test locally run:
 
 ## Licensing information
 
-([New BSD](http://opensource.org/licenses/BSD-3-Clause))
-
-© 2004–2016 Dojo Foundation & contributors. [New BSD](http://opensource.org/licenses/BSD-3-Clause) license.
+© 2017 [JS Foundation](https://js.foundation/). [New BSD](http://opensource.org/licenses/BSD-3-Clause) license.
