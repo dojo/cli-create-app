@@ -14,6 +14,10 @@
     "src",
     "typings.json"
   ],
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dojo/cli-create-app.git"
