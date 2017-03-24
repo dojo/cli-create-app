@@ -6,6 +6,8 @@
 
 The `create app` command for the `dojo cli`.
 
+**WARNING** This is _beta_ software. While we do not anticipate significant changes to the API at this stage, we may feel the need to do so. This is not yet production ready, so you should use at your own risk.
+
 - [Usage](#usage)
 - [Features](#features)
 - [How do I contribute?](#how-do-i-contribute)
