@@ -12,5 +12,6 @@
 
 .upsidedown {
 	transform: rotate(180deg);
+	color: red;
 	position: fixed;
 }
