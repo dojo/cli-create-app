@@ -1,7 +1,8 @@
-import { v } from '@dojo/widget-core/d';
+import { v, w } from '@dojo/widget-core/d';
 import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemeableMixin, theme } from '@dojo/widget-core/mixins/Themeable';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
+import Button, { ButtonProperties } from '@dojo/widgets/Button/Button';
 
 import * as css from './styles/HelloWorld.css';
 
@@ -24,7 +25,8 @@ export default class HelloWorld extends HelloWorldBase<HelloWorldProperties> {
 			css.hello,
 			this.properties.stranger ? css.upsidedown : null
 		);
-
-		return v('div', { classes, onclick: this.onClick }, [ 'Hello, Dojo World!' ]);
+		const myButtonProperties: ButtonProperties = { content: 'Hello, Dojo World!' };
+		const myButton = w(Button, myButtonProperties);
+		return v('div', { classes, onclick: this.onClick }, [myButton]);
 	}
 }
