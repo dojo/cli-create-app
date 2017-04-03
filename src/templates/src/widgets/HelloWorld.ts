@@ -3,7 +3,7 @@ import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemeableMixin, theme } from '@dojo/widget-core/mixins/Themeable';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 
-import * as css from './styles/HelloWorld.css';
+import * as css from './styles/HelloWorld.m.css';
 
 export interface HelloWorldProperties extends WidgetProperties {
 	stranger: boolean;

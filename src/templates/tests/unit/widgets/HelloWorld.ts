@@ -3,7 +3,7 @@ import { assert } from 'chai';
 import { VNode } from '@dojo/interfaces/vdom';
 
 import HelloWorld from '../../../src/widgets/HelloWorld';
-import * as css from '../../../src/widgets/styles/HelloWorld.css';
+import * as css from '../../../src/widgets/styles/HelloWorld.m.css';
 
 registerSuite({
 	name: 'HelloWorld',
