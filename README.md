@@ -26,12 +26,20 @@ npm install -g @dojo/cli-create-app
 Run using:
 
 ```bash
-dojo create [app] -name <appName>
+dojo create [app] --name <appName>
 ```
 
 ## Features
 
-Will create a new app folder and scaffold an app within it.
+`@dojo/cli-create-app` generates a skeleton project structure for Dojo 2 into a directory using the the `--name` argument provided.
+
+All the dependencies have been pre-installed using `npm` including two `@dojo/cli` commands; [`@dojo/cli-build-webpack`](https://github.com/dojo/cli-build) and [`@dojo/cli-test-intern`](https://github.com/dojo/cli-test-intern).
+
+To start using the application, `cd` into the directory and run `dojo build --watch` which will build and serve the application on port `9999`. Open [http://localhost:9999](http://localhost:9999) in a modern browser (Chrome, FF, Safari, IE11 or Edge) to run the application.
+
+For testing the application run `dojo test`, which will build the application (`src` and `tests`) and run all test in node.
+
+When ready to create a production build run `dojo build`, the output will be available in the `dist` directory.
 
 ## How do I contribute?
 
