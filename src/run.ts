@@ -19,9 +19,6 @@ export interface CreateAppArgs extends Argv {
 export default async function(helper: Helper, args: CreateAppArgs) {
 	const appName = args.name;
 
-	if (!appName) {
-		return Promise.reject(new Error('appName is empty'));
-	}
 	console.info(chalk.underline(`Creating your new app: ${appName}\n`));
 
 	if (existsSync(appName)) {

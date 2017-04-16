@@ -75,15 +75,6 @@ registerSuite({
 			assert.isTrue(existsSyncStub.firstCall.calledWith(name));
 		}
 	},
-	async 'Should check to if appName exists'() {
-		try {
-			await run(helperStub, { name: '' });
-			assert.fail(null, null, 'Should not get here');
-		}
-		catch (error) {
-			assert.equal('appName is empty', error.message);
-		}
-	},
 	async 'Should get directories to create from config'() {
 		await run(helperStub, args);
 		assert.isTrue(getDirectoryNamesStub.calledOnce);
