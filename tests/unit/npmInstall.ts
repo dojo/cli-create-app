@@ -45,12 +45,12 @@ registerSuite({
 		spawnStub.restore();
 	},
 	async 'Should call spawn to run an npm process'() {
-		spawnOnStub.onFirstCall().callsArg(1);
+		spawnOnStub.onFirstCall().callsArgWith(1, 0);
 		await npmInstall.default();
 		assert.isTrue(spawnStub.calledOnce);
 	},
 	async 'Should use a loading spinner'() {
-		spawnOnStub.onFirstCall().callsArg(1);
+		spawnOnStub.onFirstCall().callsArgWith(1, 0);
 		await npmInstall.default();
 		assert.isTrue(startStub.calledOnce, 'Should call start on the spinner');
 		assert.isTrue(stopAndPersistStub.calledOnce, 'Should stop the spinner');
@@ -65,7 +65,21 @@ registerSuite({
 			assert.fail(null, null, 'Should not get here');
 		}
 		catch (error) {
-			assert.equal(errorMessage, error.message);
+			assert.equal(error.message, errorMessage);
+			assert.isTrue(stopAndPersistStub.calledOnce, 'Should stop the spinner');
+			assert.isTrue(stopAndPersistStub.firstCall.calledWithMatch('failed'),
+				'Should persis the failed message');
+		}
+	},
+	async 'Should reject with an error when spawn process returns an exit code !== 0'() {
+		const errorExitCode = 1;
+		spawnOnStub.onFirstCall().callsArgWith(1, errorExitCode);
+		try {
+			await npmInstall.default();
+			assert.fail(null, null, 'Should not get here');
+		}
+		catch (error) {
+			assert.equal(error.message, `exit code: ${errorExitCode}` );
 			assert.isTrue(stopAndPersistStub.calledOnce, 'Should stop the spinner');
 			assert.isTrue(stopAndPersistStub.firstCall.calledWithMatch('failed'),
 				'Should persis the failed message');
