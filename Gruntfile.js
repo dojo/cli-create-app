@@ -15,12 +15,14 @@ module.exports = function (grunt) {
 				expand: true,
 				cwd: 'src',
 				src: staticFiles,
+				dot: true,
 				dest: '<%= devDirectory %>/src'
 			},
 			staticDistFiles: {
 				expand: true,
 				cwd: 'src',
 				src: staticFiles,
+				dot: true,
 				dest: '<%= distDirectory %>'
 			}
 		},
