@@ -23,5 +23,10 @@ registerSuite({
 		const options = sandbox.stub();
 		register(options);
 		assert.isTrue(options.firstCall.calledWithMatch('n', { 'demand': true }));
+	},
+	'Should require a value for the name option'() {
+		const options = sandbox.stub();
+		register(options);
+		assert.isTrue(options.firstCall.calledWithMatch('n', { 'requiresArg': true }));
 	}
 });
