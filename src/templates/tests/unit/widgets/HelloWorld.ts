@@ -17,7 +17,7 @@ registerSuite({
 	},
 	'render with stranger'() {
 		const helloWorld = new HelloWorld();
-		helloWorld.setProperties({
+		helloWorld.__setProperties__({
 			stranger: true,
 			toggleStranger: () => {}
 		});
