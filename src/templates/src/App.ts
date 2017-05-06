@@ -16,6 +16,6 @@ export default class App extends WidgetBase<WidgetProperties> {
 	protected render(): DNode {
 		const { stranger, toggleStranger } = this;
 
-		return w<HelloWorldProperties>(HelloWorld, { stranger, toggleStranger });
+		return w<HelloWorld>(HelloWorld, { stranger, toggleStranger });
 	}
 }
