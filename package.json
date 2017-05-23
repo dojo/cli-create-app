@@ -3,7 +3,7 @@
   "version": "2.0.0-pre",
   "description": "Command to scaffold a new command",
   "private": true,
-  "homepage": "http://dojotoolkit.org",
+  "homepage": "https://dojo.io",
   "bugs": {
     "url": "https://github.com/dojo/cli-create-app/issues"
   },
@@ -36,11 +36,11 @@
     "@types/node": "^6.0.49",
     "@types/sinon": "^1.16.32",
     "codecov.io": "0.1.6",
-    "@dojo/cli": "^2.0.0-alpha.9",
-    "@dojo/loader": "beta1",
+    "@dojo/cli": "beta1",
+    "@dojo/loader": "next",
     "glob": "^7.0.3",
     "grunt": "~1.0.1",
-    "grunt-dojo2": "beta1",
+    "grunt-dojo2": "latest",
     "intern": "^3.4.1",
     "istanbul": "^0.4.3",
     "mockery": "^1.7.0",
