@@ -1,6 +1,6 @@
 import * as registerSuite from 'intern!object';
 import * as assert from 'intern/chai!assert';
-import { getDirectoryNames, getRenderFilesConfig } from './../../src/config';
+import { getDirectoryNames, getRenderFilesConfig, stripTemplateFromFileName } from './../../src/config';
 import * as path from 'path';
 import { spy, SinonSpy } from 'sinon';
 
@@ -22,6 +22,9 @@ registerSuite({
 		folderNames.forEach((folderName: string) => {
 			assert.isTrue(folderName.indexOf(appName) === 0, 'folder name should be within app folder');
 		});
+	},
+	'Should strip .template from fileName'() {
+		assert.equal(stripTemplateFromFileName('/foo/bar/.gitignore.template'), '/foo/bar/.gitignore');
 	},
 	'Should return config of file names using the given package path'() {
 		const renderFilesConfig = getRenderFilesConfig(packagePath);

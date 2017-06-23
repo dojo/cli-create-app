@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join, parse, format } from 'path';
 
 export function getDirectoryNames(appName: string): string[] {
 	return [
@@ -35,12 +35,18 @@ const fileNames = [
 	'tests/functional/main.ts'
 ];
 
+export function stripTemplateFromFileName(filePath: string) {
+	const path = parse(filePath);
+	path.base = path.base.replace('.template', '');
+	return format(path);
+}
+
 export function getRenderFilesConfig(packagePath: string): {src: string, dest: string}[] {
 	return fileNames.map((fileName) => {
 		const fileNameParts = fileName.split('/');
 		return {
 			src: join(packagePath, 'templates', ...fileNameParts),
-			dest: join(...fileNameParts)
+			dest: stripTemplateFromFileName(join(...fileNameParts))
 		};
 	});
 }
