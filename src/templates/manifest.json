@@ -2,7 +2,7 @@
 	"short_name": "<%- appName %>",
 	"name": "<%- appName %>",
 	"icons" : [{
-		"src": "images/app144.png",
+		"src": "images/app192.png",
 		"sizes": "192x192",
 		"type": "images/png"
 	}, {
