@@ -54,15 +54,10 @@ export function stripTemplateFromFileName(filePath: string) {
 
 export function getFilesConfig(packagePath: string, fileNames: string[]): {src: string, dest: string}[] {
 	return fileNames.map((fileName) => {
-		console.log(fileName);
 		const fileNameParts = fileName.split('/');
-		const src = join(packagePath, 'templates', ...fileNameParts);
-		const dest = stripTemplateFromFileName(join(...fileNameParts));
-		console.log(src);
-		console.log(dest);
 		return {
-			src,
-			dest
+			src: join(packagePath, 'templates', ...fileNameParts),
+			dest: stripTemplateFromFileName(join(...fileNameParts))
 		};
 	});
 }
