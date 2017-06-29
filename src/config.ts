@@ -1,5 +1,10 @@
 import { join, parse, format } from 'path';
 
+export type CreateFileConfig = {
+	src: string;
+	dest: string;
+};
+
 export function getDirectoryNames(appName: string): string[] {
 	return [
 		appName,
@@ -10,12 +15,11 @@ export function getDirectoryNames(appName: string): string[] {
 		`${appName}/tests`,
 		`${appName}/tests/unit`,
 		`${appName}/tests/unit/widgets`,
-		`${appName}/tests/functional`,
-		`${appName}/images`
+		`${appName}/tests/functional`
 	];
 }
 
-const fileNames = [
+const renderFileNames = [
 	'manifest.json',
 	'package.json',
 	'tsconfig.json',
@@ -35,11 +39,11 @@ const fileNames = [
 	'tests/unit/widgets/all.ts',
 	'tests/unit/widgets/HelloWorld.ts',
 	'tests/functional/all.ts',
-	'tests/functional/main.ts',
-	'images/app192.png',
-	'images/app256.png',
-	'images/app384.png',
-	'images/app512.png'
+	'tests/functional/main.ts'
+];
+
+const copyDirNames = [
+	'src/images'
 ];
 
 export function stripTemplateFromFileName(filePath: string) {
@@ -48,12 +52,25 @@ export function stripTemplateFromFileName(filePath: string) {
 	return format(path);
 }
 
-export function getRenderFilesConfig(packagePath: string): {src: string, dest: string}[] {
+export function getFilesConfig(packagePath: string, fileNames: string[]): {src: string, dest: string}[] {
 	return fileNames.map((fileName) => {
+		console.log(fileName);
 		const fileNameParts = fileName.split('/');
+		const src = join(packagePath, 'templates', ...fileNameParts);
+		const dest = stripTemplateFromFileName(join(...fileNameParts));
+		console.log(src);
+		console.log(dest);
 		return {
-			src: join(packagePath, 'templates', ...fileNameParts),
-			dest: stripTemplateFromFileName(join(...fileNameParts))
+			src,
+			dest
 		};
 	});
+}
+
+export function getRenderFilesConfig(packagePath: string): CreateFileConfig[] {
+	return getFilesConfig(packagePath, renderFileNames);
+}
+
+export function getCopyDirsConfig(packagePath: string): CreateFileConfig[] {
+	return getFilesConfig(packagePath, copyDirNames);
 }

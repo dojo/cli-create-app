@@ -13,11 +13,13 @@ const name = 'testAppName';
 const args = { name };
 const dirNames = [ name, name + '/tests' ];
 const existsSyncStub: SinonStub = stub();
+const copyDirsStub: SinonStub = stub();
 const createDirStub: SinonStub = stub();
 const renderFilesStub: SinonStub = stub().returns(Promise.resolve());
 const npmInstallStub: SinonStub = stub().returns(Promise.resolve());
 const changeDirStub: SinonStub = stub();
 const pkgDirStub: SinonStub = stub().returns(name);
+const getCopyDirsConfigStub: SinonStub = stub().returns(dirNames);
 const getDirectoryNamesStub: SinonStub = stub().returns(dirNames);
 const getRenderFilesConfigStub: SinonStub = stub().returns(Promise.resolve());
 const typingsInstallStub: SinonStub = stub().returns(Promise.resolve());
@@ -33,11 +35,13 @@ registerSuite({
 		mockery.enable({ 'warnOnUnregistered': false });
 
 		mockery.registerMock('fs-extra', { 'existsSync': existsSyncStub });
+		mockery.registerMock('./copyDirs', { 'default': copyDirsStub });
 		mockery.registerMock('./createDir', { 'default': createDirStub });
 		mockery.registerMock('./renderFiles', { 'default': renderFilesStub });
 		mockery.registerMock('./npmInstall', { 'default': npmInstallStub });
 		mockery.registerMock('./changeDir', { 'default': changeDirStub });
 		mockery.registerMock('./config', {
+			'getCopyDirsConfig': getCopyDirsConfigStub,
 			'getDirectoryNames': getDirectoryNamesStub,
 			'getRenderFilesConfig': getRenderFilesConfigStub
 		});
@@ -54,10 +58,12 @@ registerSuite({
 		helperStub = getHelperStub<any>();
 		existsSyncStub.reset();
 		existsSyncStub.returns(false);
+		copyDirsStub.reset();
 		createDirStub.reset();
 		renderFilesStub.reset();
 		npmInstallStub.reset();
 		changeDirStub.reset();
+		getCopyDirsConfigStub.reset();
 		getDirectoryNamesStub.reset();
 		getRenderFilesConfigStub.reset();
 		typingsInstallStub.reset();
@@ -88,11 +94,17 @@ registerSuite({
 		assert.isTrue(changeDirStub.firstCall.calledWith(name));
 		assert.isTrue(changeDirStub.calledAfter(createDirStub));
 	},
-	async 'Should get files to ender from config'() {
+	async 'Should get files to render from config'() {
 		await run(helperStub, args);
 		assert.isTrue(getRenderFilesConfigStub.calledOnce);
 		assert.isTrue(renderFilesStub.calledOnce);
 		assert.isTrue(renderFilesStub.calledAfter(changeDirStub));
+	},
+	async 'Should get directories to copy from config'() {
+		await run(helperStub, args);
+		assert.isTrue(getCopyDirsConfigStub.calledOnce);
+		assert.isTrue(copyDirsStub.calledOnce);
+		assert.isTrue(copyDirsStub.calledAfter(changeDirStub));
 	},
 	async 'Should run npmInstall'() {
 		await run(helperStub, args);
