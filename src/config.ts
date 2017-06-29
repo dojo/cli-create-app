@@ -10,11 +10,13 @@ export function getDirectoryNames(appName: string): string[] {
 		`${appName}/tests`,
 		`${appName}/tests/unit`,
 		`${appName}/tests/unit/widgets`,
-		`${appName}/tests/functional`
+		`${appName}/tests/functional`,
+		`${appName}/images`
 	];
 }
 
 const fileNames = [
+	'manifest.json',
 	'package.json',
 	'tsconfig.json',
 	'.gitignore',
@@ -33,7 +35,11 @@ const fileNames = [
 	'tests/unit/widgets/all.ts',
 	'tests/unit/widgets/HelloWorld.ts',
 	'tests/functional/all.ts',
-	'tests/functional/main.ts'
+	'tests/functional/main.ts',
+	'images/app192.png',
+	'images/app256.png',
+	'images/app384.png',
+	'images/app512.png'
 ];
 
 export function stripTemplateFromFileName(filePath: string) {
