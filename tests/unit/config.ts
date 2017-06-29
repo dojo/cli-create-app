@@ -18,13 +18,15 @@ registerSuite({
 	},
 	'Should return directory names to create inside the specified app name'() {
 		const folderNames = getDirectoryNames(appName);
-		assert.equal(9, folderNames.length, 'length');
+		assert.equal(10, folderNames.length, 'length');
 		folderNames.forEach((folderName: string) => {
 			assert.isTrue(folderName.indexOf(appName) === 0, 'folder name should be within app folder');
 		});
 	},
 	'Should strip .template from fileName'() {
-		assert.equal(stripTemplateFromFileName('/foo/bar/.gitignore.template'), '/foo/bar/.gitignore');
+		assert.equal(
+			stripTemplateFromFileName('/foo/bar/.gitignore.template'), path.format(path.parse('/foo/bar/.gitignore'))
+		);
 	},
 	'Should return config of file names using the given package path'() {
 		const renderFilesConfig = getRenderFilesConfig(packagePath);
