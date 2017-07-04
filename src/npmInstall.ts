@@ -10,9 +10,14 @@ export default async function () {
 			text: 'npm install'
 		}).start();
 		cs.spawn('npm', ['install'], { stdio: 'ignore' })
-			.on('close', () => {
-				spinner.stopAndPersist(green.bold(' completed'));
-				resolve();
+			.on('exit', function(code: Number){
+				if (code !== 0) {
+					spinner.stopAndPersist(red.bold(' failed'));
+					reject(new Error(`exit code: ${code}`));
+				} else {
+					spinner.stopAndPersist(green.bold(' completed'));
+					resolve();
+				}
 			})
 			.on('error', (err: Error) => {
 				spinner.stopAndPersist(red.bold(' failed'));
