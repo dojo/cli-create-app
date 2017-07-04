@@ -2,16 +2,16 @@ import { stub } from 'sinon';
 import * as yargs from 'yargs';
 import { Helper } from '@dojo/cli/interfaces';
 
-export function getHelperStub<T>(): Helper {
+export function getHelperStub(): Helper {
 	return {
-		context: <T> {},
+		context: {},
 		yargs,
 		command: {
 			run: stub().returns(Promise.resolve()),
 			exists: stub().returns(true)
 		},
 		configuration: {
-			save: stub().returns(Promise.resolve()),
+			set: stub().returns(Promise.resolve()),
 			get: stub().returns(Promise.resolve())
 		}
 	};
