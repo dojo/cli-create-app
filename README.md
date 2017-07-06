@@ -49,7 +49,7 @@ to be installed on the homescreen of a mobile device if it was built with Servic
 By default, the manifest will use the images in the images folder as the app's icon if it is installed. These images can and should be replaced
 with an appropriate icon for your application.
 
-It also has a `background_color` and `theme_color` in `manifest.json`, which can be updated to match the desired color scheme for your application.
+The sample app also has a `background_color` and `theme_color` in `manifest.json`, which can be updated to match the desired color scheme for your application.
 
 ## How do I contribute?
 
