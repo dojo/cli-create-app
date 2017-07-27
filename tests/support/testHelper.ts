@@ -11,7 +11,7 @@ export function getHelperStub(): Helper {
 			exists: stub().returns(true)
 		},
 		configuration: {
-			set: stub().returns(Promise.resolve()),
+			save: stub().returns(Promise.resolve()),
 			get: stub().returns(Promise.resolve())
 		}
 	};
