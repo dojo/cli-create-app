@@ -24,7 +24,7 @@ registerSuite({
 		});
 	},
 	'Should strip .template from fileName'() {
-		assert.equal(stripTemplateFromFileName('/foo/bar/.gitignore.template'), '/foo/bar/.gitignore');
+		assert.equal(stripTemplateFromFileName('/foo/bar/.gitignore.template'), `/foo/bar${path.sep}.gitignore`);
 	},
 	'Should return config of file names using the given package path'() {
 		const renderFilesConfig = getRenderFilesConfig(packagePath);
