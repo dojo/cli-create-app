@@ -51,7 +51,7 @@ registerSuite({
 		mockery.disable();
 	},
 	'beforeEach'() {
-		helperStub = getHelperStub<any>();
+		helperStub = getHelperStub();
 		existsSyncStub.reset();
 		existsSyncStub.returns(false);
 		createDirStub.reset();
