@@ -1,4 +1,4 @@
-import { join, parse, format } from 'path';
+import { join, parse, format, normalize } from 'path';
 
 export function getDirectoryNames(appName: string): string[] {
 	return [
@@ -38,7 +38,7 @@ const fileNames = [
 export function stripTemplateFromFileName(filePath: string) {
 	const path = parse(filePath);
 	path.base = path.base.replace('.template', '');
-	return format(path);
+	return normalize(format(path));
 }
 
 export function getRenderFilesConfig(packagePath: string): {src: string, dest: string}[] {
