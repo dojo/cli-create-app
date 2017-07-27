@@ -1,6 +1,7 @@
 # cli-create-app
 
 [![Build Status](https://travis-ci.org/dojo/cli-create-app.svg?branch=master)](https://travis-ci.org/dojo/cli-create-app)
+[![Build status](https://ci.appveyor.com/api/projects/status/ap88vuv8xsuelowm/branch/master?svg=true)](https://ci.appveyor.com/project/Dojo/cli-create-app/branch/master)
 [![codecov](https://codecov.io/gh/dojo/cli-create-app/branch/master/graph/badge.svg)](https://codecov.io/gh/dojo/cli-create-app)
 [![npm version](https://badge.fury.io/js/%40dojo%2Fcli-create-app.svg)](https://badge.fury.io/js/%40dojo%2Fcli-create-app)
 
