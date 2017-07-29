@@ -1,10 +1,11 @@
 import { Argv } from 'yargs';
 import { Helper } from '@dojo/cli/interfaces';
+import copyDirs from './copyDirs';
 import createDir from './createDir';
 import renderFiles from './renderFiles';
 import npmInstall from './npmInstall';
 import changeDir from './changeDir';
-import { getDirectoryNames, getRenderFilesConfig } from './config';
+import { getDirectoryNames, getRenderFilesConfig, getCopyDirsConfig } from './config';
 import * as chalk from 'chalk';
 import { existsSync } from 'fs-extra';
 import dirname from './dirname';
@@ -32,6 +33,7 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 
 	console.info(chalk.underline('\nCreating Files'));
 	renderFiles(getRenderFilesConfig(packagePath), { appName });
+	copyDirs(getCopyDirsConfig(packagePath));
 
 	console.info(chalk.underline('\nRunning npm install'));
 	await npmInstall();

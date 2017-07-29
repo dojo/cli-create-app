@@ -1,11 +1,7 @@
 import template from './template';
+import { CreateFileConfig } from './config';
 
-export type RenderFilesConfig = {
-	src: string;
-	dest: string;
-}[];
-
-export default function (renderFilesConfig: RenderFilesConfig, renderData: any) {
+export default function (renderFilesConfig: CreateFileConfig[], renderData: any) {
 	renderFilesConfig.forEach(({ src, dest }) => {
 		template(src, dest, renderData);
 	});

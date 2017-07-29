@@ -41,6 +41,16 @@ For testing the application run `dojo test`, which will build the application (`
 
 When ready to create a production build run `dojo build`, the output will be available in the `dist` directory.
 
+### Manifest.json
+
+This sample app contains [a web app manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest), `manifest.json`, that allows the app
+to be installed on the homescreen of a mobile device if it was built with Service Workers enabled. Service Workers can be enabled by setting the `"serviceWorker"` option in the `.dojorc` config for `build-webpack`.
+
+By default, the manifest will use the images in the images folder as the app's icon if it is installed. These images can and should be replaced
+with an appropriate icon for your application.
+
+The sample app also has a `background_color` and `theme_color` in `manifest.json`, which can be updated to match the desired color scheme for your application.
+
 ## How do I contribute?
 
 We appreciate your interest!  Please see the [Dojo 2 Meta Repository](https://github.com/dojo/meta#readme) for the
