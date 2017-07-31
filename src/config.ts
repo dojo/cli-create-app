@@ -1,4 +1,4 @@
-import { join, parse, format, normalize } from 'path';
+import { format, join, normalize, parse  } from 'path';
 
 export function getDirectoryNames(appName: string): string[] {
 	return [
