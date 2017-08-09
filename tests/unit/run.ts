@@ -1,7 +1,7 @@
 import * as registerSuite from 'intern!object';
 import * as assert from 'intern/chai!assert';
 import { getHelperStub } from '../support/testHelper';
-import { Helper } from '@dojo/cli/interfaces';
+import { Helper } from '@dojo/interfaces/cli';
 import * as mockery from 'mockery';
 import { SinonStub, stub } from 'sinon';
 

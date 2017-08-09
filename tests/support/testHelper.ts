@@ -1,6 +1,6 @@
 import { stub } from 'sinon';
 import * as yargs from 'yargs';
-import { Helper } from '@dojo/cli/interfaces';
+import { Helper } from '@dojo/interfaces/cli';
 
 export function getHelperStub(): Helper {
 	return {

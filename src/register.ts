@@ -1,4 +1,4 @@
-import { OptionsHelper } from '@dojo/cli/interfaces';
+import { OptionsHelper } from '@dojo/interfaces/cli';
 
 export default function(options: OptionsHelper): void {
 	options('n', {

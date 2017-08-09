@@ -1,6 +1,0 @@
-{
-	"name": "dojo-cli-create-app",
-	"dependencies": {
-		"yargs": "registry:npm/yargs#5.0.0+20160817153026"
-	}
-}
