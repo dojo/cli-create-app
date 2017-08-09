@@ -12,7 +12,7 @@ import dirname from './dirname';
 const pkgDir: any = require('pkg-dir');
 const packagePath = pkgDir.sync(dirname);
 
-export interface CreateAppArgs extends Argv {
+export interface CreateAppArgs {
 	name: string;
 }
 
