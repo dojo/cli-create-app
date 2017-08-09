@@ -23,6 +23,7 @@ const fileNames = [
 	'src/main.ts',
 	'src/main.css',
 	'src/App.ts',
+	'src/registerServiceWorker.ts',
 	'src/widgets/HelloWorld.ts',
 	'src/widgets/styles/HelloWorld.m.css',
 	'src/widgets/styles/HelloWorld.m.css.d.ts',
