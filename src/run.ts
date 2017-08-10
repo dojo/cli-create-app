@@ -1,5 +1,5 @@
 import { Argv } from 'yargs';
-import { Helper } from '@dojo/cli/interfaces';
+import { Helper } from '@dojo/interfaces/cli';
 import createDir from './createDir';
 import renderFiles from './renderFiles';
 import npmInstall from './npmInstall';
@@ -12,7 +12,7 @@ import dirname from './dirname';
 const pkgDir: any = require('pkg-dir');
 const packagePath = pkgDir.sync(dirname);
 
-export interface CreateAppArgs extends Argv {
+export interface CreateAppArgs {
 	name: string;
 }
 

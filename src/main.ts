@@ -1,8 +1,8 @@
-import { Command } from '@dojo/cli/interfaces';
+import { Command } from '@dojo/interfaces/cli';
 import register from './register';
-import run from './run';
+import run, { CreateAppArgs } from './run';
 
-const command: Command = {
+const command: Command<CreateAppArgs> = {
 	description: 'Scaffolds a new app',
 	register,
 	run
