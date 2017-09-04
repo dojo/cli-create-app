@@ -17,7 +17,7 @@ export function getDirectoryNames(appName: string): string[] {
 const fileNames = [
 	'package.json',
 	'tsconfig.json',
-	'.gitignore.template',
+	'template-.gitignore',
 	'README.md',
 	'src/index.html',
 	'src/main.ts',
@@ -37,7 +37,7 @@ const fileNames = [
 
 export function stripTemplateFromFileName(filePath: string) {
 	const path = parse(filePath);
-	path.base = path.base.replace('.template', '');
+	path.base = path.base.replace('template-', '');
 	return normalize(format(path));
 }
 

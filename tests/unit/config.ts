@@ -23,8 +23,8 @@ registerSuite({
 			assert.isTrue(folderName.indexOf(appName) === 0, 'folder name should be within app folder');
 		});
 	},
-	'Should strip .template from fileName'() {
-		assert.equal(stripTemplateFromFileName('/foo/bar/.gitignore.template'), `${path.sep}foo${path.sep}bar${path.sep}.gitignore`);
+	'Should strip "template-" from fileName'() {
+		assert.equal(stripTemplateFromFileName('/foo/bar/template-.gitignore'), `${path.sep}foo${path.sep}bar${path.sep}.gitignore`);
 	},
 	'Should return config of file names using the given package path'() {
 		const renderFilesConfig = getRenderFilesConfig(packagePath);
