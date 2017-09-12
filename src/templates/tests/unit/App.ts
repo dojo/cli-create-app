@@ -13,7 +13,7 @@ registerSuite({
 	name: 'App',
 	beforeEach() {
 		helloWorldSpy = spy(HelloWorld);
-		helloWorldSetPropertiesSpy = spy(HelloWorld.prototype, 'setProperties');
+		helloWorldSetPropertiesSpy = spy(HelloWorld.prototype, '__setProperties__');
 	},
 	afterEach() {
 		helloWorldSetPropertiesSpy.restore();
