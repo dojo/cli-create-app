@@ -1,7 +1,7 @@
 import { ProjectorMixin } from '@dojo/widget-core/mixins/Projector';
-import App from './widgets/HelloWorld';
+import HelloWorld from './widgets/HelloWorld';
 
-const Projector = ProjectorMixin(App);
+const Projector = ProjectorMixin(HelloWorld);
 const projector = new Projector();
 
 projector.append();
