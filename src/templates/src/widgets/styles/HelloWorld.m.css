@@ -1,17 +1,29 @@
-.hello {
-	background-color: rgba(159, 181, 203, 0.30);
-	border: 1px solid gray;
-	border-radius: 4px;
-	display: block;
-	font-family: -apple-system, BlinkMacSystemFont;
-	margin: 1em;
-	padding: 1em;
-	user-select: none;
-	width: 140px;
-	text-align: center;
+body {
+	color: #fff;
+	background: #1d1f20;
 }
 
-.upsidedown {
-	transform: rotate(180deg);
-	color: red;
+.root {
+	text-align: center;
+	padding: 100px 0 0 0;
+}
+
+.logo {
+	width: 200px;
+	animation: rotation 2s infinite linear;
+}
+
+.label {
+	padding: 20px;
+	margin: 20px;
+	font-family: 'Arial', serif;
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
 }
