@@ -1,2 +1,4 @@
-export const hello: string;
-export const upsidedown: string;
+export const root: string;
+export const logo: string;
+export const rotation: string;
+export const label: string;

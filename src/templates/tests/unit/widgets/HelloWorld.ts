@@ -1,6 +1,9 @@
 import * as registerSuite from 'intern/lib/interfaces/object';
 import { assert } from 'chai';
-import { VNode } from '@dojo/interfaces/vdom';
+import harness, { Harness } from '@dojo/test-extras/harness';
+
+import { WidgetProperties } from '@dojo/widget-core/interfaces';
+import { v } from '@dojo/widget-core/d';
 
 import HelloWorld from '../../../src/widgets/HelloWorld';
 import * as css from '../../../src/widgets/styles/HelloWorld.m.css';
@@ -8,23 +11,10 @@ import * as css from '../../../src/widgets/styles/HelloWorld.m.css';
 registerSuite({
 	name: 'HelloWorld',
 	'render'() {
-		const helloWorld = new HelloWorld();
-
-		const vnode = <VNode> helloWorld.__render__();
-		assert.strictEqual(vnode.vnodeSelector, 'div');
-		assert.equal(vnode.text, 'Hello, Dojo World!');
-		assert.deepEqual(vnode.properties!.classes, { [css.hello]: true });
-	},
-	'render with stranger'() {
-		const helloWorld = new HelloWorld();
-		helloWorld.__setProperties__({
-			stranger: true,
-			toggleStranger: () => {}
-		});
-
-		const vnode = <VNode> helloWorld.__render__();
-		assert.strictEqual(vnode.vnodeSelector, 'div');
-		assert.equal(vnode.text, 'Hello, Dojo World!');
-		assert.deepEqual(vnode.properties!.classes, { [css.hello]: true, [css.upsidedown]: true });
+		const testHelloWorld = harness(HelloWorld);
+		testHelloWorld.expectRender(v('div', { classes: testHelloWorld.classes(css.root) }, [
+			v('img', { src: './img/logo.svg', classes: testHelloWorld.classes(css.logo) }),
+			v('div', { classes: testHelloWorld.classes(css.label) }, [ 'Hello, Dojo 2 World!' ])
+		]));
 	}
 });
