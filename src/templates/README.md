@@ -22,4 +22,4 @@ Run `dojo test -f` to run the projects functional tests. These tests are located
 
 ## Further help
 
-To get help for these commands use `dojo {command} -h` ot checkout their READMEs.
+To get help for these commands use `dojo {command} -h` or checkout their READMEs.
