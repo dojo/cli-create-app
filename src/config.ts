@@ -19,6 +19,7 @@ const fileNames = [
 	'package.json',
 	'tsconfig.json',
 	'template-.gitignore',
+	'.dojorc',
 	'README.md',
 	'src/img/logo.svg',
 	'src/index.html',
