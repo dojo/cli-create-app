@@ -1,8 +1,6 @@
 import * as registerSuite from 'intern/lib/interfaces/object';
-import { assert } from 'chai';
-import harness, { Harness } from '@dojo/test-extras/harness';
+import harness from '@dojo/test-extras/harness';
 
-import { WidgetProperties } from '@dojo/widget-core/interfaces';
 import { v } from '@dojo/widget-core/d';
 
 import HelloWorld from '../../../src/widgets/HelloWorld';
