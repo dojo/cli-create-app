@@ -3,7 +3,7 @@ import register from './register';
 import run, { CreateAppArgs } from './run';
 
 const command: Command<CreateAppArgs> = {
-	description: 'Scaffolds a new app',
+	description: 'scaffolds a new app',
 	register,
 	run
 };
