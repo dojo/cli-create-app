@@ -37,7 +37,7 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 	await npmInstall();
 
 	console.info(chalk.underline('\nRunning dojo init'));
-	await helper.command.run('', 'init');
+	await helper.command.run('init', '');
 
 	console.info(chalk.green.bold('\nAll done!\n'));
 }
