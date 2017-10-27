@@ -98,5 +98,10 @@ registerSuite({
 		await run(helperStub, args);
 		assert.isTrue(npmInstallStub.calledOnce);
 		assert.isTrue(npmInstallStub.calledAfter(renderFilesStub));
+	},
+	async 'Should run dojo init'() {
+		await run(helperStub, args);
+		assert.isTrue((helperStub.command.run as any).calledOnce);
+		assert.deepEqual((helperStub.command.run as any).firstCall.args, [ 'init', '' ]);
 	}
 });
