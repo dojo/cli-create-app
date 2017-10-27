@@ -1,5 +1,5 @@
-import * as registerSuite from 'intern!object';
-import * as assert from 'intern/chai!assert';
+const { registerSuite } = intern.getInterface('object');
+const { assert } = intern.getPlugin('chai');
 import * as mockery from 'mockery';
 import { stub, SinonStub } from 'sinon';
 const cs: any = require('cross-spawn');
@@ -11,9 +11,8 @@ const startStub: SinonStub = stub().returns({
 });
 let npmInstall: any;
 
-registerSuite({
-	name: 'npmInstall',
-	setup() {
+registerSuite('npmInstall', {
+	before() {
 		mockery.enable({
 			warnOnUnregistered: false
 		});
@@ -24,13 +23,13 @@ registerSuite({
 			};
 		});
 
-		npmInstall = require('intern/dojo/node!./../../src/npmInstall');
+		npmInstall = require('../../src/npmInstall');
 	},
-	teardown() {
+	after() {
 		mockery.deregisterAll();
 		mockery.disable();
 	},
-	'beforeEach'() {
+	beforeEach() {
 		spawnOnStub = stub();
 		const spawnOnResponse = {
 			'on': spawnOnStub
@@ -41,9 +40,11 @@ registerSuite({
 		spawnOnStub.returns(spawnOnResponse);
 		spawnStub = stub(cs, 'spawn').returns(spawnOnResponse);
 	},
-	'afterEach'() {
+	afterEach() {
 		spawnStub.restore();
 	},
+
+	tests: {
 	async 'Should call spawn to run an npm process'() {
 		spawnOnStub.onFirstCall().callsArgWith(1, 0);
 		await npmInstall.default();
@@ -84,5 +85,6 @@ registerSuite({
 			assert.isTrue(stopAndPersistStub.firstCall.calledWithMatch('failed'),
 				'Should persis the failed message');
 		}
+	}
 	}
 });

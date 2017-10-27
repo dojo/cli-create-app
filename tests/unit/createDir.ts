@@ -1,5 +1,5 @@
-import * as registerSuite from 'intern!object';
-import * as assert from 'intern/chai!assert';
+const { registerSuite } = intern.getInterface('object');
+const { assert } = intern.getPlugin('chai');
 import createDir from './../../src/createDir';
 import * as fs from 'fs-extra';
 import { stub, SinonStub } from 'sinon';
@@ -7,20 +7,21 @@ import { stub, SinonStub } from 'sinon';
 let mkdirsStub: SinonStub;
 let consoleStub: SinonStub;
 
-registerSuite({
-	name: 'createDir',
-	'setup'() {
+registerSuite('createDir', {
+	before() {
 		consoleStub = stub(console, 'info');
 	},
-	'teardown'() {
+	after() {
 		consoleStub.restore();
 	},
-	'beforeEach'() {
+	beforeEach() {
 		mkdirsStub = stub(fs, 'mkdirsSync');
 	},
-	'afterEach'() {
+	afterEach() {
 		mkdirsStub.restore();
 	},
+
+	tests: {
 	'Should call mkdir when passed a path'() {
 		const folderName = 'tmp/folder';
 		createDir(folderName);
@@ -34,5 +35,6 @@ registerSuite({
 		assert.isTrue(mkdirsStub.calledTwice);
 		assert.isTrue(mkdirsStub.firstCall.calledWith(folderName1));
 		assert.isTrue(mkdirsStub.secondCall.calledWith(folderName2));
+	}
 	}
 });

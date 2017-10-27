@@ -1,5 +1,5 @@
-import * as registerSuite from 'intern!object';
-import * as assert from 'intern/chai!assert';
+const { registerSuite } = intern.getInterface('object');
+const { assert } = intern.getPlugin('chai');
 import template from './../../src/template';
 import * as fs from 'fs-extra';
 import { stub, SinonStub } from 'sinon';
@@ -11,22 +11,23 @@ const testEjsSrc = 'tests/support/template.ejs';
 const testDest = '/tmp/test/destination';
 const value = 'testValue';
 
-registerSuite({
-	'name': 'template',
-	'setup'() {
+registerSuite('template', {
+	before() {
 		consoleStub = stub(console, 'info');
 	},
-	'teardown'() {
+	after() {
 		consoleStub.restore();
 	},
-	'beforeEach'() {
+	beforeEach() {
 		writeFileStub = stub(fs, 'writeFile').callsArg(2);
 		mkdirsStub = stub(fs, 'mkdirsSync');
 	},
-	'afterEach'() {
+	afterEach() {
 		writeFileStub.restore();
 		mkdirsStub.restore();
 	},
+
+	tests: {
 	async 'can render ejs file'() {
 		await template(testEjsSrc, testDest, { value });
 		assert.strictEqual(writeFileStub.firstCall.args[1].trim(), value);
@@ -34,5 +35,6 @@ registerSuite({
 	async 'write file is called with dest path'() {
 		await template(testEjsSrc, testDest, { value });
 		assert.strictEqual(writeFileStub.firstCall.args[0], testDest);
+	}
 	}
 });

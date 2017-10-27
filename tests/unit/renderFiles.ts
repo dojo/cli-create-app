@@ -1,5 +1,5 @@
-import * as registerSuite from 'intern!object';
-import * as assert from 'intern/chai!assert';
+const { registerSuite } = intern.getInterface('object');
+const { assert } = intern.getPlugin('chai');
 import { SinonStub, stub } from 'sinon';
 import * as mockery from 'mockery';
 
@@ -14,9 +14,8 @@ const testFilesConfig = [
 
 let renderFiles: any;
 
-registerSuite({
-	name: 'renderFiles',
-	'setup'() {
+registerSuite('renderFiles', {
+	before() {
 		mockery.enable({
 			warnOnUnregistered: false
 		});
@@ -25,15 +24,17 @@ registerSuite({
 			'default': templateStub
 		});
 
-		renderFiles = require('intern/dojo/node!./../../src/renderFiles');
+		renderFiles = require('../../src/renderFiles');
 	},
-	'teardown'() {
+	after() {
 		mockery.deregisterAll();
 		mockery.disable();
 	},
-	'beforeEach'() {
+	beforeEach() {
 		templateStub.reset();
 	},
+
+	tests: {
 	async 'Should call template for each file in the config'() {
 		await renderFiles.default(testFilesConfig, testRenderData);
 		assert.equal(2, templateStub.callCount);
@@ -43,5 +44,6 @@ registerSuite({
 		const [ file1, file2 ] = testFilesConfig;
 		assert.isTrue(templateStub.firstCall.calledWithMatch(file1.src, file1.dest));
 		assert.isTrue(templateStub.secondCall.calledWithMatch(file2.src, file2.dest));
+	}
 	}
 });
