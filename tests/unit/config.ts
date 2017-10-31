@@ -1,5 +1,5 @@
-import * as registerSuite from 'intern!object';
-import * as assert from 'intern/chai!assert';
+const { registerSuite } = intern.getInterface('object');
+const { assert } = intern.getPlugin('chai');
 import { getDirectoryNames, getRenderFilesConfig, stripTemplateFromFileName } from './../../src/config';
 import * as path from 'path';
 import { spy, SinonSpy } from 'sinon';
@@ -8,14 +8,15 @@ const appName = 'testAppName';
 const packagePath = 'testPackagePath';
 let joinSpy: SinonSpy;
 
-registerSuite({
-	name: 'config',
-	'beforeEach'() {
+registerSuite('config', {
+	beforeEach() {
 		joinSpy = spy(path, 'join');
 	},
-	'afterEach'() {
+	afterEach() {
 		joinSpy.restore();
 	},
+
+	tests: {
 	'Should return directory names to create inside the specified app name'() {
 		const folderNames = getDirectoryNames(appName);
 		assert.equal(10, folderNames.length, 'length');
@@ -35,5 +36,6 @@ registerSuite({
 		});
 
 		assert.equal(renderFilesConfig.length * 2, joinSpy.callCount, 'join should be called twice for each file config');
+	}
 	}
 });

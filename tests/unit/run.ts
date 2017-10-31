@@ -1,5 +1,5 @@
-import * as registerSuite from 'intern!object';
-import * as assert from 'intern/chai!assert';
+const { registerSuite } = intern.getInterface('object');
+const { assert } = intern.getPlugin('chai');
 import { getHelperStub } from '../support/testHelper';
 import { Helper } from '@dojo/interfaces/cli';
 import * as mockery from 'mockery';
@@ -25,9 +25,8 @@ let consoleStub: SinonStub;
 let helperStub: Helper;
 let run: any;
 
-registerSuite({
-	name: 'run',
-	'setup'() {
+registerSuite('run', {
+	before() {
 		consoleStub = stub(console, 'info');
 
 		mockery.enable({ 'warnOnUnregistered': false });
@@ -43,14 +42,14 @@ registerSuite({
 		});
 		mockery.registerMock('pkg-dir', { 'sync': pkgDirStub });
 
-		run = (<ESModule> require('intern/dojo/node!./../../src/run')).default;
+		run = (<ESModule> require('../../src/run')).default;
 	},
-	'teardown'() {
+	after() {
 		consoleStub.restore();
 		mockery.deregisterAll();
 		mockery.disable();
 	},
-	'beforeEach'() {
+	beforeEach() {
 		helperStub = getHelperStub();
 		existsSyncStub.reset();
 		existsSyncStub.returns(false);
@@ -63,6 +62,8 @@ registerSuite({
 		typingsInstallStub.reset();
 		pkgDirStub.reset();
 	},
+
+	tests: {
 	async 'Should check to see if target appName folder exists'() {
 		existsSyncStub.returns(true);
 		try {
@@ -103,5 +104,6 @@ registerSuite({
 		await run(helperStub, args);
 		assert.isTrue((helperStub.command.run as any).calledOnce);
 		assert.deepEqual((helperStub.command.run as any).firstCall.args, [ 'init', '' ]);
+	}
 	}
 });

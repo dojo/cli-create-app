@@ -1,18 +1,19 @@
-import * as registerSuite from 'intern!object';
-import * as assert from 'intern/chai!assert';
+const { registerSuite } = intern.getInterface('object');
+const { assert } = intern.getPlugin('chai');
 import register from './../../src/register';
 import * as sinon from 'sinon';
 
 let sandbox: sinon.SinonSandbox;
 
-registerSuite({
-	name: 'register',
-	'beforeEach'() {
+registerSuite('register', {
+	beforeEach() {
 		sandbox = sinon.sandbox.create();
 	},
-	'afterEach'() {
+	afterEach() {
 		sandbox.restore();
 	},
+
+	tests: {
 	'Should add a yargs option for name'() {
 		const options = sandbox.stub();
 		register(options);
@@ -28,5 +29,6 @@ registerSuite({
 		const options = sandbox.stub();
 		register(options);
 		assert.isTrue(options.firstCall.calledWithMatch('n', { 'requiresArg': true }));
+	}
 	}
 });
