@@ -1,4 +1,4 @@
-import * as registerSuite from 'intern/lib/interfaces/object';
+const { registerSuite } = intern.getInterface('object');
 import harness from '@dojo/test-extras/harness';
 
 import { v } from '@dojo/widget-core/d';
@@ -6,8 +6,7 @@ import { v } from '@dojo/widget-core/d';
 import HelloWorld from '../../../src/widgets/HelloWorld';
 import * as css from '../../../src/widgets/styles/HelloWorld.m.css';
 
-registerSuite({
-	name: 'HelloWorld',
+registerSuite('HelloWorld', {
 	'render'() {
 		const testHelloWorld = harness(HelloWorld);
 		testHelloWorld.expectRender(v('div', { classes: testHelloWorld.classes(css.root) }, [
