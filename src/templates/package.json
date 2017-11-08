@@ -22,7 +22,7 @@
     "@types/node": "^6.0.46",
     "@types/sinon": "^1.16.35",
     "chai": "^3.5.0",
-    "intern": "~4.0.2",
+    "intern": "~4.1.0",
     "sinon": "^2.0.0",
     "typescript": "~2.4.1"
   }
