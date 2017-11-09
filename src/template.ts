@@ -4,7 +4,7 @@ import * as chalk from 'chalk';
 
 export function ejsRender(source: string, replacements: Object): Promise<string> {
 	return new Promise<string>((resolve, reject) => {
-		renderFile(source, replacements, (err: Error, str: string) => {
+		renderFile(source, replacements, (err: Error, str?: string) => {
 			if (err) {
 				reject(err);
 			}

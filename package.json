@@ -26,8 +26,8 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "@dojo/loader": "~0.1.0",
-    "@dojo/interfaces": "~0.1.0",
+    "@dojo/cli": "file:tarballs/dojo-cli-0.1.1-beta.1.tgz",
+    "@dojo/loader": "file:tarballs/dojo-loader-0.1.1-beta.1.tgz",
     "@types/chai": "^3.4.34",
     "@types/chalk": "^0.4.31",
     "@types/ejs": "^2.3.33",
@@ -45,7 +45,7 @@
     "intern": "~4.1.0",
     "mockery": "^1.7.0",
     "sinon": "^1.17.5",
-    "typescript": "~2.4.1",
+    "typescript": "~2.6.1",
     "yargs": "^5.0.0"
   },
   "dependencies": {
