@@ -1,7 +1,7 @@
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
 import { getHelperStub } from '../support/testHelper';
-import { Helper } from '@dojo/cli/interfaces';
+import { Helper } from '@dojo/interfaces/cli';
 import * as mockery from 'mockery';
 import { SinonStub, stub } from 'sinon';
 

@@ -1,4 +1,4 @@
-import { Command } from '@dojo/cli/interfaces';
+import { Command } from '@dojo/interfaces/cli';
 import register from './register';
 import run, { CreateAppArgs } from './run';
 

@@ -1,5 +1,5 @@
 import { Argv } from 'yargs';
-import { Helper } from '@dojo/cli/interfaces';
+import { Helper } from '@dojo/interfaces/cli';
 import createDir from './createDir';
 import renderFiles from './renderFiles';
 import npmInstall from './npmInstall';
