@@ -7,7 +7,7 @@ import * as css from './styles/HelloWorld.m.css';
  * A themed "Hello World" widget that renders a spinning Dojo 2 logo and the text
  * "Hello, Dojo 2 World!".
  *
- * Refer to these tutorials for more help with creating a themed widget:
+ * Refer to these tutorials for more help with creating a widget:
  * 	- Creating widgets, https://dojo.io/tutorials/003_creating_widgets/
  */
 export class HelloWorld extends WidgetBase {
