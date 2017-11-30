@@ -26,7 +26,7 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "@dojo/interfaces": "./tarballs/dojo-interfaces-0.2.0-beta.1.tgz",
+    "@dojo/interfaces": "~0.2.0",
     "@dojo/loader": "~0.1.1",
     "@types/chai": "^3.4.34",
     "@types/chalk": "^0.4.31",
