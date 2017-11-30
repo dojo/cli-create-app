@@ -8,6 +8,18 @@ module.exports = function (grunt) {
 					'./src/templates',
 					"./tests/**/*.ts"
 				]
+			},
+			umd: {
+				exclude: [
+					'./src/templates',
+					"./tests/**/*.ts"
+				]
+			},
+			esm: {
+				exclude: [
+					'./src/templates',
+					"./tests/**/*.ts"
+				]
 			}
 		},
 		copy: {
