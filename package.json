@@ -1,6 +1,6 @@
 {
   "name": "@dojo/cli-create-app",
-  "version": "0.2.1-pre",
+  "version": "0.3.0-pre",
   "description": "Command to scaffold a new command",
   "private": true,
   "homepage": "https://dojo.io",
@@ -26,9 +26,8 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "@dojo/loader": "~0.1.0",
-    "@dojo/interfaces": "~0.1.0",
-    "@types/chai": "^3.4.34",
+    "@dojo/interfaces": "~0.2.0",
+    "@dojo/loader": "~0.1.1",
     "@types/chalk": "^0.4.31",
     "@types/ejs": "^2.3.33",
     "@types/fs-extra": "0.0.34",
@@ -41,11 +40,21 @@
     "codecov.io": "0.1.6",
     "glob": "^7.0.3",
     "grunt": "~1.0.1",
+    "grunt-contrib-clean": ">=1.0.0",
+    "grunt-contrib-copy": ">=1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-text-replace": ">=0.4.0",
+    "grunt-ts": ">=5.0.0",
+    "grunt-tslint": "^4.0.1",
+    "grunt-typings": "^0.1.5",
     "grunt-dojo2": "latest",
     "intern": "~4.1.0",
     "mockery": "^1.7.0",
+    "remap-istanbul": ">=0.6.3",
     "sinon": "^1.17.5",
-    "typescript": "~2.4.1",
+    "tslib": "~1.8.0",
+    "tslint": "^4.5.1",
+    "typescript": "~2.6.1",
     "yargs": "^5.0.0"
   },
   "dependencies": {
