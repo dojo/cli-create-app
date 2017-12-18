@@ -28,7 +28,6 @@
   "devDependencies": {
     "@dojo/loader": "~0.1.0",
     "@dojo/interfaces": "~0.1.0",
-    "@types/chai": "^3.4.34",
     "@types/chalk": "^0.4.31",
     "@types/ejs": "^2.3.33",
     "@types/fs-extra": "0.0.34",
@@ -42,7 +41,7 @@
     "glob": "^7.0.3",
     "grunt": "~1.0.1",
     "grunt-dojo2": "latest",
-    "intern": "~4.1.0",
+    "intern": "~4.1.4",
     "mockery": "^1.7.0",
     "sinon": "^1.17.5",
     "typescript": "~2.4.1",
