@@ -32,7 +32,7 @@ registerSuite('npmInstall', {
 	beforeEach() {
 		spawnOnStub = stub();
 		const spawnOnResponse = {
-			'on': spawnOnStub
+			on: spawnOnStub
 		};
 
 		startStub.reset();
@@ -45,46 +45,50 @@ registerSuite('npmInstall', {
 	},
 
 	tests: {
-	async 'Should call spawn to run an npm process'() {
-		spawnOnStub.onFirstCall().callsArgWith(1, 0);
-		await npmInstall.default();
-		assert.isTrue(spawnStub.calledOnce);
-	},
-	async 'Should use a loading spinner'() {
-		spawnOnStub.onFirstCall().callsArgWith(1, 0);
-		await npmInstall.default();
-		assert.isTrue(startStub.calledOnce, 'Should call start on the spinner');
-		assert.isTrue(stopAndPersistStub.calledOnce, 'Should stop the spinner');
-		assert.isTrue(stopAndPersistStub.firstCall.calledWithMatch('completed'),
-			'Should persist completed message');
-	},
-	async 'Should reject with an error when spawn throws an error'() {
-		const errorMessage = 'test error message';
-		spawnOnStub.onSecondCall().callsArgWith(1, new Error(errorMessage));
-		try {
+		async 'Should call spawn to run an npm process'() {
+			spawnOnStub.onFirstCall().callsArgWith(1, 0);
 			await npmInstall.default();
-			assert.fail(null, null, 'Should not get here');
-		}
-		catch (error) {
-			assert.equal(error.message, errorMessage);
-			assert.isTrue(stopAndPersistStub.calledOnce, 'Should stop the spinner');
-			assert.isTrue(stopAndPersistStub.firstCall.calledWithMatch('failed'),
-				'Should persis the failed message');
-		}
-	},
-	async 'Should reject with an error when spawn process returns an exit code !== 0'() {
-		const errorExitCode = 1;
-		spawnOnStub.onFirstCall().callsArgWith(1, errorExitCode);
-		try {
+			assert.isTrue(spawnStub.calledOnce);
+		},
+		async 'Should use a loading spinner'() {
+			spawnOnStub.onFirstCall().callsArgWith(1, 0);
 			await npmInstall.default();
-			assert.fail(null, null, 'Should not get here');
-		}
-		catch (error) {
-			assert.equal(error.message, `exit code: ${errorExitCode}` );
+			assert.isTrue(startStub.calledOnce, 'Should call start on the spinner');
 			assert.isTrue(stopAndPersistStub.calledOnce, 'Should stop the spinner');
-			assert.isTrue(stopAndPersistStub.firstCall.calledWithMatch('failed'),
-				'Should persis the failed message');
+			assert.isTrue(
+				stopAndPersistStub.firstCall.calledWithMatch('completed'),
+				'Should persist completed message'
+			);
+		},
+		async 'Should reject with an error when spawn throws an error'() {
+			const errorMessage = 'test error message';
+			spawnOnStub.onSecondCall().callsArgWith(1, new Error(errorMessage));
+			try {
+				await npmInstall.default();
+				assert.fail(null, null, 'Should not get here');
+			} catch (error) {
+				assert.equal(error.message, errorMessage);
+				assert.isTrue(stopAndPersistStub.calledOnce, 'Should stop the spinner');
+				assert.isTrue(
+					stopAndPersistStub.firstCall.calledWithMatch('failed'),
+					'Should persis the failed message'
+				);
+			}
+		},
+		async 'Should reject with an error when spawn process returns an exit code !== 0'() {
+			const errorExitCode = 1;
+			spawnOnStub.onFirstCall().callsArgWith(1, errorExitCode);
+			try {
+				await npmInstall.default();
+				assert.fail(null, null, 'Should not get here');
+			} catch (error) {
+				assert.equal(error.message, `exit code: ${errorExitCode}`);
+				assert.isTrue(stopAndPersistStub.calledOnce, 'Should stop the spinner');
+				assert.isTrue(
+					stopAndPersistStub.firstCall.calledWithMatch('failed'),
+					'Should persis the failed message'
+				);
+			}
 		}
-	}
 	}
 });

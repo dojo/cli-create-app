@@ -19,7 +19,7 @@ export class HelloWorld extends WidgetBase {
 		// Use WidgetBase#classes() to assign CSS classnames from the theme to the virtual DOM nodes.
 		return v('div', { classes: css.root }, [
 			v('img', { src: './img/logo.svg', classes: css.logo }),
-			v('div', { classes: css.label }, [ 'Hello, Dojo 2 World!' ])
+			v('div', { classes: css.label }, ['Hello, Dojo 2 World!'])
 		]);
 	}
 }

@@ -1,4 +1,4 @@
-import { format, join, normalize, parse  } from 'path';
+import { format, join, normalize, parse } from 'path';
 
 export function getDirectoryNames(appName: string): string[] {
 	return [
@@ -40,7 +40,7 @@ export function stripTemplateFromFileName(filePath: string) {
 	return normalize(format(path));
 }
 
-export function getRenderFilesConfig(packagePath: string): {src: string, dest: string}[] {
+export function getRenderFilesConfig(packagePath: string): { src: string; dest: string }[] {
 	return fileNames.map((fileName) => {
 		const fileNameParts = fileName.split('/');
 		return {
