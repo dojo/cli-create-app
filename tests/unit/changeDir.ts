@@ -14,11 +14,11 @@ registerSuite('changeDir', {
 	},
 
 	tests: {
-	'Should call process chdir with given path'() {
-		const path = 'testPath';
-		changeDir(path);
-		assert.isTrue(changeDirStub.calledOnce);
-		assert.isTrue(changeDirStub.firstCall.calledWith(path));
-	}
+		'Should call process chdir with given path'() {
+			const path = 'testPath';
+			changeDir(path);
+			assert.isTrue(changeDirStub.calledOnce);
+			assert.isTrue(changeDirStub.firstCall.calledWith(path));
+		}
 	}
 });

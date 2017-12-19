@@ -15,7 +15,7 @@ export function getHelperStub(): Helper {
 			get: stub().returns(Promise.resolve())
 		}
 	};
-};
+}
 
 const yargsFunctions = ['demand', 'usage', 'epilog', 'help', 'alias'];
 export function getYargsStub() {

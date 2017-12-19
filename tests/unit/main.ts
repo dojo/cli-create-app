@@ -13,11 +13,11 @@ registerSuite('main', {
 		});
 
 		mockery.registerMock('./run', {
-			'default': runStub
+			default: runStub
 		});
 
 		mockery.registerMock('./register', {
-			'default': registerStub
+			default: registerStub
 		});
 
 		main = require('../../src/main');
@@ -28,11 +28,11 @@ registerSuite('main', {
 	},
 
 	tests: {
-	'Should return a command matching the interface'() {
-		const command = main.default;
-		assert.isTrue(typeof command.description === 'string');
-		assert.equal(runStub, command.run);
-		assert.equal(registerStub, command.register);
-	}
+		'Should return a command matching the interface'() {
+			const command = main.default;
+			assert.isTrue(typeof command.description === 'string');
+			assert.equal(runStub, command.run);
+			assert.equal(registerStub, command.register);
+		}
 	}
 });

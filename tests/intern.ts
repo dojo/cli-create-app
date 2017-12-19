@@ -16,7 +16,7 @@ export const capabilities = {
 };
 
 // Support running unit tests from a web server that isn't the intern proxy
-export const initialBaseUrl: string | null = (function () {
+export const initialBaseUrl: string | null = (function() {
 	if (typeof location !== 'undefined' && location.pathname.indexOf('__intern/') > -1) {
 		return '/';
 	}
@@ -35,13 +35,13 @@ export const loaderOptions = {
 	// Packages that should be registered with the loader in each testing environment
 	packages: [
 		{ name: 'src', location: '_build/src' },
-		{ name: 'grunt-dojo2', location: 'node_modules/grunt-dojo2'},
+		{ name: 'grunt-dojo2', location: 'node_modules/grunt-dojo2' },
 		{ name: 'tests', location: '_build/tests' }
 	]
 };
 
 // Non-functional test suite(s) to run in each browser
-export const suites = [ 'tests/unit/all' ];
+export const suites = ['tests/unit/all'];
 
 // A regular expression matching URLs to files that should not be included in code coverage analysis
 export const excludeInstrumentation = /(?:node_modules|bower_components|tests|templates)[\/\\]|dirname/;
