@@ -1,7 +1,7 @@
 import { v } from '@dojo/widget-core/d';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 
-import * as css from './styles/HelloWorld.m.css';
+import * as css from './styles/helloWorld.m.css';
 
 /**
  * A themed "Hello World" widget that renders a spinning Dojo 2 logo and the text
