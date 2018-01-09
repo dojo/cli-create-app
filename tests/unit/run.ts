@@ -3,7 +3,7 @@ const { assert } = intern.getPlugin('chai');
 import { getHelperStub } from '../support/testHelper';
 import { Helper } from '@dojo/interfaces/cli';
 import * as mockery from 'mockery';
-import { SinonStub, stub } from 'sinon';
+import { SinonStub, stub, SinonAssert } from 'sinon';
 
 type ESModule = {
 	default: any;
@@ -33,7 +33,6 @@ registerSuite('run', {
 
 		mockery.registerMock('fs-extra', { existsSync: existsSyncStub });
 		mockery.registerMock('./createDir', { default: createDirStub });
-		mockery.registerMock('./renderFiles', { default: renderFilesStub });
 		mockery.registerMock('./npmInstall', { default: npmInstallStub });
 		mockery.registerMock('./changeDir', { default: changeDirStub });
 		mockery.registerMock('./config', {
@@ -54,7 +53,6 @@ registerSuite('run', {
 		existsSyncStub.reset();
 		existsSyncStub.returns(false);
 		createDirStub.reset();
-		renderFilesStub.reset();
 		npmInstallStub.reset();
 		changeDirStub.reset();
 		getDirectoryNamesStub.reset();
@@ -88,16 +86,16 @@ registerSuite('run', {
 			assert.isTrue(changeDirStub.firstCall.calledWith(name));
 			assert.isTrue(changeDirStub.calledAfter(createDirStub));
 		},
-		async 'Should get files to ender from config'() {
+		async 'Should get files to render from config'() {
 			await run(helperStub, args);
 			assert.isTrue(getRenderFilesConfigStub.calledOnce);
-			assert.isTrue(renderFilesStub.calledOnce);
-			assert.isTrue(renderFilesStub.calledAfter(changeDirStub));
+			assert.isTrue((helperStub.command.renderFiles as SinonStub).calledOnce);
+			assert.isTrue((helperStub.command.renderFiles as SinonStub).calledAfter(changeDirStub));
 		},
 		async 'Should run npmInstall'() {
 			await run(helperStub, args);
 			assert.isTrue(npmInstallStub.calledOnce);
-			assert.isTrue(npmInstallStub.calledAfter(renderFilesStub));
+			assert.isTrue(npmInstallStub.calledAfter(helperStub.command.renderFiles as SinonStub));
 		},
 		async 'Should run dojo init'() {
 			await run(helperStub, args);
