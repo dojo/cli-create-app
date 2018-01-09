@@ -8,7 +8,8 @@ export function getHelperStub(): Helper {
 		yargs,
 		command: {
 			run: stub().returns(Promise.resolve()),
-			exists: stub().returns(true)
+			exists: stub().returns(true),
+			renderFiles: stub()
 		},
 		configuration: {
 			set: stub().returns(Promise.resolve()),
