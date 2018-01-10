@@ -1,7 +1,6 @@
 import { Argv } from 'yargs';
 import { Helper } from '@dojo/interfaces/cli';
 import createDir from './createDir';
-import renderFiles from './renderFiles';
 import npmInstall from './npmInstall';
 import changeDir from './changeDir';
 import { getDirectoryNames, getRenderFilesConfig } from './config';
@@ -31,7 +30,7 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 	changeDir(appName);
 
 	console.info(chalk.underline('\nCreating Files'));
-	renderFiles(getRenderFilesConfig(packagePath), { appName });
+	helper.command.renderFiles(getRenderFilesConfig(packagePath), { appName });
 
 	console.info(chalk.underline('\nRunning npm install'));
 	await npmInstall();
