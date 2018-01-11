@@ -3,6 +3,8 @@ import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 
 import * as css from './styles/helloWorld.m.css';
 
+const logo = require('./../img/logo.svg');
+
 /**
  * A themed "Hello World" widget that renders a spinning Dojo 2 logo and the text
  * "Hello, Dojo 2 World!".
@@ -18,7 +20,7 @@ export class HelloWorld extends WidgetBase {
 	protected render() {
 		// Use WidgetBase#classes() to assign CSS classnames from the theme to the virtual DOM nodes.
 		return v('div', { classes: css.root }, [
-			v('img', { src: './img/logo.svg', classes: css.logo }),
+			v('img', { src: logo, classes: css.logo }),
 			v('div', { classes: css.label }, ['Hello, Dojo 2 World!'])
 		]);
 	}
