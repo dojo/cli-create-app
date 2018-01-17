@@ -4,21 +4,27 @@ This project was generated with the [Dojo CLI](https://github.com/dojo/cli) & [D
 
 ## Build
 
-Run `dojo build` to create a production build for the project. The built artifacts will be stored in the `dist` directory.
+Run `dojo build --mode dist` (the `mode` option defaults to `dist`) to create a production build for the project. The built artifacts will be stored in the `output/dist` directory.
+
+## Development Build
+
+Run `dojo build --mode dev` to create a development build for the project. The built artifacts will be stored in the `output/dev` directory.
 
 ## Development server
 
-Run `dojo build -w` to create a development build and start a development server. By default the server runs on port `9999`, navigate to `http://localhost:9999/`.
+Run `dojo build --mode dev --watch memory --serve` to create an in memory development build and start a development server with hot reload. By default the server runs on port `9999`, navigate to `http://localhost:9999/`.
 
-If port `9999` is already in use, the next available port in the `9990:9999` range (working backwards) will be used. The selected port is output to the console at the start of the `dojo build -w` process. The app will automatically reload if you change any of the source files.
+To change the port of the development use the `--port` option.
 
 ## Running unit tests
 
-Run `dojo test` to run the projects unit tests. These tests are located in the `tests/unit` directory.
+To run the unit tests, first the run a test build with `dojo build --mode test`. The build test artifacts are written to the `output/test` directory.
+
+Then `dojo test` to run the projects unit tests. These tests are located in the `tests/unit` directory. The `--watch` options can be used with the test build which means that `dojo test` can be re-run without needing to re-build the full application each time.
 
 ## Running functional tests
 
-Run `dojo test -f` to run the projects functional tests. These tests are located in the `tests/functional` directory.
+To run the functional tests, first the run a test build with `dojo build --mode test` and then `dojo test -f` to run the projects functional tests. These tests are located in the `tests/functional` directory.
 
 ## Further help
 
