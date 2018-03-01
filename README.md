@@ -7,8 +7,6 @@
 
 The `create app` command for [`@dojo/cli`](https://github.com/dojo/cli).
 
-**WARNING** This is _beta_ software. While we do not anticipate significant changes to the API at this stage, we may feel the need to do so. This is not yet production ready, so you should use at your own risk.
-
 - [Usage](#usage)
 - [Features](#features)
 - [How do I contribute?](#how-do-i-contribute)
@@ -35,7 +33,7 @@ dojo create [app] --name <appName>
 
 `@dojo/cli-create-app` generates a skeleton project structure for Dojo 2 into a directory using the the `--name` argument provided.
 
-All the dependencies have been pre-installed using `npm` including two `@dojo/cli` commands; [`@dojo/cli-build-app`](https://github.com/dojo/cli-build-app) and [`@dojo/cli-test-intern`](https://github.com/dojo/cli-test-intern).
+All the dependencies are pre-installed using `npm` including two `@dojo/cli` commands; [`@dojo/cli-build-app`](https://github.com/dojo/cli-build-app) and [`@dojo/cli-test-intern`](https://github.com/dojo/cli-test-intern).
 
 To start using the application, `cd` into the directory and run `dojo build --mode dev --watch memory --serve` which will build and serve the application on port `9999`. Open [http://localhost:9999](http://localhost:9999) in a modern browser (Chrome, FF, Safari, IE11 or Edge) to run the application.
 
