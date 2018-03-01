@@ -5,9 +5,7 @@
 [![codecov](https://codecov.io/gh/dojo/cli-create-app/branch/master/graph/badge.svg)](https://codecov.io/gh/dojo/cli-create-app)
 [![npm version](https://badge.fury.io/js/%40dojo%2Fcli-create-app.svg)](https://badge.fury.io/js/%40dojo%2Fcli-create-app)
 
-The `create app` command for the `dojo cli`.
-
-**WARNING** This is _beta_ software. While we do not anticipate significant changes to the API at this stage, we may feel the need to do so. This is not yet production ready, so you should use at your own risk.
+The `create app` command for [`@dojo/cli`](https://github.com/dojo/cli).
 
 - [Usage](#usage)
 - [Features](#features)
@@ -35,13 +33,13 @@ dojo create [app] --name <appName>
 
 `@dojo/cli-create-app` generates a skeleton project structure for Dojo 2 into a directory using the the `--name` argument provided.
 
-All the dependencies have been pre-installed using `npm` including two `@dojo/cli` commands; [`@dojo/cli-build-webpack`](https://github.com/dojo/cli-build) and [`@dojo/cli-test-intern`](https://github.com/dojo/cli-test-intern).
+All the dependencies are pre-installed using `npm` including two `@dojo/cli` commands; [`@dojo/cli-build-app`](https://github.com/dojo/cli-build-app) and [`@dojo/cli-test-intern`](https://github.com/dojo/cli-test-intern).
 
-To start using the application, `cd` into the directory and run `dojo build --watch` which will build and serve the application on port `9999`. Open [http://localhost:9999](http://localhost:9999) in a modern browser (Chrome, FF, Safari, IE11 or Edge) to run the application.
+To start using the application, `cd` into the directory and run `dojo build --mode dev --watch memory --serve` which will build and serve the application on port `9999`. Open [http://localhost:9999](http://localhost:9999) in a modern browser (Chrome, FF, Safari, IE11 or Edge) to run the application.
 
-For testing the application run `dojo test`, which will build the application (`src` and `tests`) and run all test in node.
+To build the tests, run `dojo build --mode test`. This will output to `output/test`.
 
-When ready to create a production build run `dojo build`, the output will be available in the `dist` directory.
+When ready to create a production build run `dojo build`, the output will be available in the `output/dist` directory.
 
 ## How do I contribute?
 
