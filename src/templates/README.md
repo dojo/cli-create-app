@@ -18,9 +18,11 @@ To change the port of the development use the `--port` option.
 
 ## Running unit tests
 
-To run the unit tests, first the run a test build with `dojo build --mode test`. The build test artifacts are written to the `output/test` directory.
+To run units tests in node only use `dojo test` which uses JIT (just in time) compilation.
 
-Then `dojo test` to run the projects unit tests. These tests are located in the `tests/unit` directory. The `--watch` options can be used with the test build which means that `dojo test` can be re-run without needing to re-build the full application each time.
+To run the unit tests against built bundles, first the run a test build with `dojo build --mode test`. The build test artifacts are written to the `output/test` directory.
+
+Then `dojo test -c local` to run the projects unit tests. These tests are located in the `tests/unit` directory. The `--watch` options can be used with the test build which means that `dojo test` can be re-run without needing to re-build the full application each time.
 
 ## Running functional tests
 
