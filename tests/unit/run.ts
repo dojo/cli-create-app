@@ -3,7 +3,7 @@ const { assert } = intern.getPlugin('chai');
 import { getHelperStub } from '../support/testHelper';
 import { Helper } from '@dojo/cli/interfaces';
 import * as mockery from 'mockery';
-import { SinonStub, stub, SinonAssert } from 'sinon';
+import { SinonStub, stub } from 'sinon';
 
 type ESModule = {
 	default: any;
@@ -14,7 +14,6 @@ const args = { name };
 const dirNames = [name, name + '/tests'];
 const existsSyncStub: SinonStub = stub();
 const createDirStub: SinonStub = stub();
-const renderFilesStub: SinonStub = stub().returns(Promise.resolve());
 const npmInstallStub: SinonStub = stub().returns(Promise.resolve());
 const changeDirStub: SinonStub = stub();
 const pkgDirStub: SinonStub = stub().returns(name);
@@ -50,15 +49,15 @@ registerSuite('run', {
 	},
 	beforeEach() {
 		helperStub = getHelperStub();
-		existsSyncStub.reset();
+		existsSyncStub.resetHistory();
 		existsSyncStub.returns(false);
-		createDirStub.reset();
-		npmInstallStub.reset();
-		changeDirStub.reset();
-		getDirectoryNamesStub.reset();
-		getRenderFilesConfigStub.reset();
-		typingsInstallStub.reset();
-		pkgDirStub.reset();
+		createDirStub.resetHistory();
+		npmInstallStub.resetHistory();
+		changeDirStub.resetHistory();
+		getDirectoryNamesStub.resetHistory();
+		getRenderFilesConfigStub.resetHistory();
+		typingsInstallStub.resetHistory();
+		pkgDirStub.resetHistory();
 	},
 
 	tests: {

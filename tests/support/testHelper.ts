@@ -1,4 +1,4 @@
-import { stub } from 'sinon';
+import { stub, SinonStub } from 'sinon';
 import * as yargs from 'yargs';
 import { Helper } from '@dojo/cli/interfaces';
 
@@ -28,7 +28,16 @@ export function getYargsStub() {
 	return yargsStub;
 }
 
-export function getCommandWrapper(name: string, runs: boolean = true) {
+export function getCommandWrapper(
+	name: string,
+	runs: boolean = true
+): {
+	group: string;
+	name: string;
+	description: string;
+	register: SinonStub;
+	run: SinonStub;
+} {
 	const commandWrapper = {
 		group: 'foo',
 		name,

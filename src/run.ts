@@ -1,10 +1,9 @@
-import { Argv } from 'yargs';
 import { Helper } from '@dojo/cli/interfaces';
 import createDir from './createDir';
 import npmInstall from './npmInstall';
 import changeDir from './changeDir';
 import { getDirectoryNames, getRenderFilesConfig } from './config';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 import { existsSync } from 'fs-extra';
 import dirname from './dirname';
 

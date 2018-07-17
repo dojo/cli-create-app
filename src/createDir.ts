@@ -1,5 +1,5 @@
 import { mkdirsSync } from 'fs-extra';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 
 export default function(...dirPath: string[]) {
 	dirPath.forEach((path) => {
