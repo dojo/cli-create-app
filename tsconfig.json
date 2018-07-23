@@ -1,13 +1,7 @@
 {
+	"extends": "./node_modules/@dojo/scripts/tsconfig/commonjs.json",
 	"compilerOptions": {
-		"declaration": false,
-		"module": "commonjs",
-		"moduleResolution": "node",
-		"outDir": "_build/",
-		"removeComments": false,
-		"sourceMap": true,
-		"strict": true,
-		"target": "es2016",
+		"target": "es2015",
 		"types": [ "intern" ]
 	},
 	"include": [

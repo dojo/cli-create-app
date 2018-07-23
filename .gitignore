@@ -2,16 +2,11 @@
 *.js.map
 !/*.js
 !/tasks/*.js
-/_build
-/bower_components
+/coverage
 /dist
-/html-report
 /node_modules
-/typings
 .baseDir.ts
 .tscache
 .tsconfig*.json
 .history
-coverage-final.lcov
 npm-debug.log
-yarn.lock

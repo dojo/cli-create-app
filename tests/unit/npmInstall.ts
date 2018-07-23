@@ -35,8 +35,8 @@ registerSuite('npmInstall', {
 			on: spawnOnStub
 		};
 
-		startStub.reset();
-		stopAndPersistStub.reset();
+		startStub.resetHistory();
+		stopAndPersistStub.resetHistory();
 		spawnOnStub.returns(spawnOnResponse);
 		spawnStub = stub(cs, 'spawn').returns(spawnOnResponse);
 	},
