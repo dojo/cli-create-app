@@ -1,6 +1,7 @@
 {
 	"extends": "./node_modules/@dojo/scripts/tsconfig/commonjs.json",
 	"compilerOptions": {
+		"declaration": false,
 		"target": "es2015",
 		"types": [ "intern" ]
 	},
