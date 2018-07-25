@@ -27,24 +27,26 @@
     "build:static:dev:templates": "cpx \"src/templates/**/*\" dist/dev/src/templates",
     "build:static:release": "cpx \"src/templates/**/*\" dist/release/templates",
     "build:cjs": "tsc",
-    "build": "npm-run-all -p build:** -s package",
+    "build": "npm-run-all -p build:** -s dojo-package",
     "clean": "rimraf dist coverage",
+    "dojo-package": "dojo-package",
+    "dojo-release": "dojo-release",
     "intern": "intern",
     "lint:tslint": "tslint -p .",
     "lint:prettier": "prettier -l \"{src,tests}/**/*.{ts,tsx}\"",
     "lint": "run-p lint:*",
-    "package": "dojo-package",
     "precommit": "lint-staged",
     "prettier": "prettier --write \"{src,tests}/**/*.{ts,tsx}\"",
-    "test": "npm run lint && npm run build && intern",
+    "release": "run-s lint clean build \"dojo-release -- {@}\" --",
+    "test": "run-s lint clean build intern",
     "uploadCoverage": "codecov --file=coverage/coverage.json",
     "watch:ts": "dojo-tsc-watcher -p tsconfig.json -- dojo-package",
     "watch": "run-p watch:ts \"build:static:** -- --watch\""
   },
   "devDependencies": {
-    "@dojo/cli": "^3.0.0-alpha.1",
-    "@dojo/scripts": "^3.0.0-alpha.6",
-    "@types/fs-extra": "0.0.34",
+    "@dojo/cli": "~3.0.0",
+    "@dojo/scripts": "~3.0.1",
+    "@types/fs-extra": "^5.0.0",
     "@types/mockery": "^1.4.29",
     "@types/node": "~9.6.5",
     "@types/sinon": "~4.3.3",
@@ -60,12 +62,12 @@
     "yargs": "^10.0.3"
   },
   "dependencies": {
-    "chalk": "~2.4.0",
-    "cross-spawn": "^4.0.0",
-    "fs-extra": "^0.30.0",
-    "ora": "^0.3.0",
-    "pkg-dir": "^1.0.0",
-    "tslib": "~1.8.0"
+    "chalk": "2.4.1",
+    "cross-spawn": "5.1.0",
+    "fs-extra": "5.0.0",
+    "ora": "0.3.0",
+    "pkg-dir": "2.0.0",
+    "tslib": "1.8.1"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
