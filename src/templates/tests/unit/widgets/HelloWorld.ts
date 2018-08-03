@@ -14,7 +14,7 @@ describe('HelloWorld', () => {
 		h.expect(() =>
 			v('div', { classes: css.root }, [
 				v('img', { src: logo, classes: css.logo }),
-				v('div', { classes: css.label }, ['Hello, Dojo 2 World!'])
+				v('div', { classes: css.label }, ['Hello, Dojo World!'])
 			])
 		);
 	});
