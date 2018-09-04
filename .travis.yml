@@ -12,5 +12,4 @@ env:
 install:
 - travis_retry npm install
 script:
-- npm test
-- npm run uploadCoverage
+- npm run lint && npm test && npm run uploadCoverage
