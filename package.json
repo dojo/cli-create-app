@@ -38,7 +38,7 @@
     "precommit": "lint-staged",
     "prettier": "prettier --write \"{src,tests}/**/*.{ts,tsx}\"",
     "release": "run-s lint clean build \"dojo-release -- {@}\" --",
-    "test": "run-s lint clean build intern",
+    "test": "run-s clean build intern",
     "uploadCoverage": "codecov --file=coverage/coverage.json",
     "watch:ts": "dojo-tsc-watcher -p tsconfig.json -- dojo-package",
     "watch": "run-p watch:ts \"build:static:** -- --watch\""
