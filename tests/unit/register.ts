@@ -14,11 +14,13 @@ registerSuite('register', {
 	},
 
 	tests: {
-		'Should add a yargs option for name'() {
+		'Should add a yargs options'() {
 			const options = sandbox.stub();
 			register(options);
-			assert.isTrue(options.calledOnce);
+			assert.isTrue(options.calledThrice);
 			assert.isTrue(options.firstCall.calledWithMatch('n', { alias: 'name' }));
+			assert.isTrue(options.secondCall.calledWithMatch('s', { alias: 'skeleton' }));
+			assert.isTrue(options.thirdCall.calledWithMatch('t', { alias: 'tsx' }));
 		},
 		'Should demand the name option'() {
 			const options = sandbox.stub();

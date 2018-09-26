@@ -10,13 +10,13 @@ export default function(options: OptionsHelper): void {
 	});
 	options('s', {
 		alias: 'skeleton',
-		describe: 'Will only output a skeleton project',
+		describe: 'Outputs a skeleton dojo project',
 		default: false,
 		type: 'boolean'
 	});
 	options('t', {
 		alias: 'tsx',
-		describe: 'Use a `tsx` version of the project',
+		describe: 'Outputs a `tsx` dojo project',
 		default: false,
 		type: 'boolean'
 	});

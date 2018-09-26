@@ -7,7 +7,7 @@ export function getDirectoryNames(appName: string, isSkeleton = false, isTsx = f
 		return join(appName, relative(templateDirectory, directory));
 	});
 
-	return [appName, ...directories];
+	return directories;
 }
 
 export function stripTemplateFromFileName(filePath: string) {
