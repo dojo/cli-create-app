@@ -15,9 +15,9 @@ export default class App extends WidgetBase {
 			<div classes={[css.root]}>
 				<Menu />
 				<div>
-					<Outlet id="home" renderer={() => <Home />} />
-					<Outlet id="about" renderer={() => <About />} />
-					<Outlet id="profile" renderer={() => <Profile username="Dojo User" />} />
+					<Outlet key="home" id="home" renderer={() => <Home />} />
+					<Outlet key="about" id="about" renderer={() => <About />} />
+					<Outlet key="profile" id="profile" renderer={() => <Profile username="Dojo User" />} />
 				</div>
 			</div>
 		);
