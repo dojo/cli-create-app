@@ -22,7 +22,7 @@ export function getRenderFilesConfig(isSkeleton = false, isTsx = false): { src: 
 
 	return files.map((file) => {
 		return {
-			src: file,
+			src: normalize(file),
 			dest: stripTemplateFromFileName(relative(templateDirectory, file))
 		};
 	});
