@@ -5,17 +5,17 @@ import changeDir from './changeDir';
 import { getDirectoryNames, getRenderFilesConfig } from './config';
 import chalk from 'chalk';
 import { existsSync } from 'fs-extra';
-import dirname from './dirname';
-
-const pkgDir: any = require('pkg-dir');
-const packagePath = pkgDir.sync(dirname);
 
 export interface CreateAppArgs {
 	name: string;
+	skeleton: boolean;
+	tsx: boolean;
 }
 
 export default async function(helper: Helper, args: CreateAppArgs) {
 	const appName = args.name;
+	const isSkeleton = args.skeleton;
+	const isTsx = args.tsx;
 
 	console.info(chalk.underline(`Creating your new app: ${appName}\n`));
 
@@ -24,12 +24,12 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 	}
 
 	console.info(chalk.underline('Creating Directories'));
-	createDir(...getDirectoryNames(appName));
+	createDir(...getDirectoryNames(appName, isSkeleton, isTsx));
 
 	changeDir(appName);
 
 	console.info(chalk.underline('\nCreating Files'));
-	helper.command.renderFiles(getRenderFilesConfig(packagePath), { appName });
+	helper.command.renderFiles(getRenderFilesConfig(isSkeleton, isTsx), { appName });
 
 	console.info(chalk.underline('\nRunning npm install'));
 	await npmInstall();

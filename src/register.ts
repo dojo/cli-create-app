@@ -8,4 +8,16 @@ export default function(options: OptionsHelper): void {
 		requiresArg: true,
 		type: 'string'
 	});
+	options('s', {
+		alias: 'skeleton',
+		describe: 'Outputs a skeleton dojo project',
+		default: false,
+		type: 'boolean'
+	});
+	options('t', {
+		alias: 'tsx',
+		describe: 'Outputs a `tsx` dojo project',
+		default: false,
+		type: 'boolean'
+	});
 }
