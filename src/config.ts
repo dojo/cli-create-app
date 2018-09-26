@@ -1,38 +1,14 @@
-import { format, join, normalize, parse } from 'path';
+import { format, join, normalize, parse, relative } from 'path';
+import * as glob from 'glob';
 
-export function getDirectoryNames(appName: string): string[] {
-	return [
-		appName,
-		`${appName}/src`,
-		`${appName}/src/img`,
-		`${appName}/src/styles`,
-		`${appName}/src/widgets`,
-		`${appName}/src/widgets/styles`,
-		`${appName}/tests`,
-		`${appName}/tests/unit`,
-		`${appName}/tests/unit/widgets`,
-		`${appName}/tests/functional`
-	];
+export function getDirectoryNames(appName: string, isSkeleton = false, isTsx = false): string[] {
+	const templateDirectory = join(__dirname, 'templates', isTsx ? 'tsx' : 'ts', isSkeleton ? 'skeleton' : 'standard');
+	const directories = glob.sync(join(templateDirectory, '**', '/')).map((directory) => {
+		return join(appName, relative(templateDirectory, directory));
+	});
+
+	return [appName, ...directories];
 }
-
-const fileNames = [
-	'package.json',
-	'tsconfig.json',
-	'template-.gitignore',
-	'README.md',
-	'src/img/logo.svg',
-	'src/index.html',
-	'src/main.ts',
-	'src/main.css',
-	'src/widgets/HelloWorld.ts',
-	'src/widgets/styles/helloWorld.m.css',
-	'src/widgets/styles/helloWorld.m.css.d.ts',
-	'tests/unit/all.ts',
-	'tests/unit/widgets/all.ts',
-	'tests/unit/widgets/HelloWorld.ts',
-	'tests/functional/all.ts',
-	'tests/functional/main.ts'
-];
 
 export function stripTemplateFromFileName(filePath: string) {
 	const path = parse(filePath);
@@ -40,12 +16,14 @@ export function stripTemplateFromFileName(filePath: string) {
 	return normalize(format(path));
 }
 
-export function getRenderFilesConfig(packagePath: string): { src: string; dest: string }[] {
-	return fileNames.map((fileName) => {
-		const fileNameParts = fileName.split('/');
+export function getRenderFilesConfig(isSkeleton = false, isTsx = false): { src: string; dest: string }[] {
+	const templateDirectory = join(__dirname, 'templates', isTsx ? 'tsx' : 'ts', isSkeleton ? 'skeleton' : 'standard');
+	const files = glob.sync(join(templateDirectory, '**'), { nodir: true, absolute: true });
+
+	return files.map((file) => {
 		return {
-			src: join(packagePath, 'templates', ...fileNameParts),
-			dest: stripTemplateFromFileName(join(...fileNameParts))
+			src: file,
+			dest: stripTemplateFromFileName(relative(templateDirectory, file))
 		};
 	});
 }

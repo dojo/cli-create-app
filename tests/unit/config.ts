@@ -31,7 +31,7 @@ registerSuite('config', {
 			);
 		},
 		'Should return config of file names using the given package path'() {
-			const renderFilesConfig = getRenderFilesConfig(packagePath);
+			const renderFilesConfig = getRenderFilesConfig();
 
 			renderFilesConfig.forEach(({ src }) => {
 				assert.isTrue(src.indexOf(packagePath) === 0, 'src should be within package path');

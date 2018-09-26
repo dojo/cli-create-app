@@ -8,4 +8,16 @@ export default function(options: OptionsHelper): void {
 		requiresArg: true,
 		type: 'string'
 	});
+	options('s', {
+		alias: 'skeleton',
+		describe: 'Will only output a skeleton project',
+		default: false,
+		type: 'boolean'
+	});
+	options('t', {
+		alias: 'tsx',
+		describe: 'Use a `tsx` version of the project',
+		default: false,
+		type: 'boolean'
+	});
 }
