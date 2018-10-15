@@ -14,6 +14,9 @@ export function getHelperStub(): Helper {
 		configuration: {
 			set: stub().returns(Promise.resolve()),
 			get: stub().returns(Promise.resolve())
+		},
+		validation: {
+			validate: stub().returns(Promise.resolve())
 		}
 	};
 }
