@@ -17,6 +17,16 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 	const isSkeleton = args.skeleton;
 	const isTsx = args.tsx;
 
+	const scripts = {
+		dev: 'dojo build --mode dev --watch file --serve',
+		build: 'dojo build --mode dist',
+		buildDev: `dojo build --mode dev`,
+		test: 'dojo test',
+		testUnit: 'dojo build --mode unit && dojo test --unit --config local',
+		testFunctional: 'dojo build --mode functional && dojo test --functional --config local',
+		testAll: 'dojo build --mode unit && dojo build --mode functional && dojo test --all --config local'
+	};
+
 	console.info(chalk.underline(`Creating your new app: ${appName}\n`));
 
 	if (existsSync(appName)) {
@@ -29,7 +39,7 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 	changeDir(appName);
 
 	console.info(chalk.underline('\nCreating Files'));
-	helper.command.renderFiles(getRenderFilesConfig(isSkeleton, isTsx), { appName });
+	helper.command.renderFiles(getRenderFilesConfig(isSkeleton, isTsx), { appName, scripts });
 
 	console.info(chalk.underline('\nRunning npm install'));
 	await npmInstall();

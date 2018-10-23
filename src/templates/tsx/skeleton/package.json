@@ -1,11 +1,21 @@
 {
   "name": "<%- appName %>",
   "version": "1.0.0",
+  "scripts": {
+    "dev": "<%- scripts.dev %>",
+    "build": "<%- scripts.build %>",
+    "build:dev": "<%- scripts.buildDev %>",
+    "test": "<%- scripts.test %>",
+    "test:unit": "<%- scripts.testUnit %>",
+    "test:functional": "<%- scripts.testFunctional %>",
+    "test:all": "<%- scripts.testAll %>"
+  },
   "dependencies": {
     "@dojo/framework": "^4.0.0",
     "tslib": "~1.8.1"
   },
   "devDependencies": {
+    "@dojo/cli": "^4.0.0",
     "@dojo/cli-build-app": "^4.0.0",
     "@dojo/cli-test-intern": "^4.0.0",
     "@types/node": "~9.6.5",
