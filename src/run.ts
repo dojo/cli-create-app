@@ -18,7 +18,7 @@ export default async function(helper: Helper, args: CreateAppArgs) {
 	const isTsx = args.tsx;
 
 	const scripts = {
-		dev: 'dojo build --mode dev --watch file --serve',
+		dev: 'dojo build --mode dev --watch --serve',
 		build: 'dojo build --mode dist',
 		buildDev: `dojo build --mode dev`,
 		test: 'dojo test',
