@@ -1,6 +1,6 @@
 const { describe, it } = intern.getInterface('bdd');
 import harness from '@dojo/framework/testing/harness';
-import { w } from '@dojo/framework/widget-core/d';
+import { w } from '@dojo/framework/core/vdom';
 import Link from '@dojo/framework/routing/ActiveLink';
 import Toolbar from '@dojo/widgets/toolbar';
 

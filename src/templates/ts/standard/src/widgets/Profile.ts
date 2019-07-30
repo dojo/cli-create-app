@@ -9,6 +9,6 @@ export interface ProfileProperties {
 const factory = create().properties<ProfileProperties>();
 
 export default factory(function Profile({ properties }) {
-	const { username } = properties;
+	const { username } = properties();
 	return v('h1', { classes: [css.root] }, [`Welcome ${username}!`]);
 });
