@@ -1,10 +1,9 @@
-import WidgetBase from '@dojo/framework/widget-core/WidgetBase';
-import { v } from '@dojo/framework/widget-core/d';
+import { v, create } from '@dojo/framework/core/vdom';
 
 import * as css from './styles/About.m.css';
 
-export default class About extends WidgetBase {
-	protected render() {
-		return v('h1', { classes: [css.root] }, ['About Page']);
-	}
-}
+const factory = create();
+
+export default factory(function Profile() {
+	return v('h1', { classes: [css.root] }, ['About Page']);
+});

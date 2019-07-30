@@ -1,5 +1,4 @@
-import WidgetBase from '@dojo/framework/widget-core/WidgetBase';
-import { v } from '@dojo/framework/widget-core/d';
+import { v, create } from '@dojo/framework/core/vdom';
 
 import * as css from './styles/Profile.m.css';
 
@@ -7,9 +6,9 @@ export interface ProfileProperties {
 	username: string;
 }
 
-export default class Profile extends WidgetBase<ProfileProperties> {
-	protected render() {
-		const { username } = this.properties;
-		return v('h1', { classes: [css.root] }, [`Welcome ${username}!`]);
-	}
-}
+const factory = create().properties<ProfileProperties>();
+
+export default factory(function Profile({ properties }) {
+	const { username } = properties();
+	return v('h1', { classes: [css.root] }, [`Welcome ${username}!`]);
+});
