@@ -1,7 +1,7 @@
 import { tsx, create } from '@dojo/framework/core/vdom';
 import theme from '@dojo/framework/core/middleware/theme';
 import Outlet from '@dojo/framework/routing/Outlet';
-import dojo from '@dojo/themes/dojo';
+import dojo from '@dojo/widgets/theme/dojo';
 
 import Menu from './widgets/Menu';
 import Home from './widgets/Home';

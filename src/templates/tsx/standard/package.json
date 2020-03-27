@@ -11,15 +11,16 @@
     "test:all": "<%- scripts.testAll %>"
   },
   "dependencies": {
-    "@dojo/framework": "^6.0.0",
-    "@dojo/themes": "^6.0.0",
-    "@dojo/widgets": "^6.0.0",
-    "tslib": "~1.9.1"
+    "@dojo/framework": "7.0.0-alpha.12",
+    "@dojo/widgets": "7.0.0-alpha.3",
+    "tslib": "~1.9.1",
+  	"cldr-data": "36.0.0",
+	"globalize": "1.5.0"
   },
   "devDependencies": {
     "@dojo/cli": "^6.0.0",
-    "@dojo/cli-build-app": "^6.0.0",
-    "@dojo/cli-test-intern": "^6.0.0",
+    "@dojo/cli-build-app": "7.0.0-alpha.10",
+    "@dojo/cli-test-intern": "^7.0.0-alpha.6",
     "@types/node": "~9.6.5",
     "typescript": "~3.4.5"
   }
