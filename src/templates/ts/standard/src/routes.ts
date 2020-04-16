@@ -1,15 +1,18 @@
 export default [
 	{
+		id: 'home',
 		path: 'home',
-		outlet: 'home',
+		outlet: 'main',
 		defaultRoute: true
 	},
 	{
+		id: 'about',
 		path: 'about',
-		outlet: 'about'
+		outlet: 'main'
 	},
 	{
+		id: 'profile',
 		path: 'profile',
-		outlet: 'profile'
+		outlet: 'main'
 	}
 ];

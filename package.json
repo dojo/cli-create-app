@@ -33,10 +33,10 @@
     "dojo-release": "dojo-release",
     "intern": "intern",
     "lint:tslint": "tslint -p .",
-    "lint:prettier": "prettier -l \"{src,tests}/**/*.{ts,tsx}\"",
+    "lint:prettier": "prettier -l \"{src,tests}/**/*.{ts,tsx,css}\"",
     "lint": "run-p lint:*",
     "precommit": "lint-staged",
-    "prettier": "prettier --write \"{src,tests}/**/*.{ts,tsx}\"",
+    "prettier": "prettier --write \"{src,tests}/**/*.{ts,tsx,css}\"",
     "release": "run-s lint clean build \"dojo-release -- {@}\" --",
     "test": "run-s clean build intern",
     "uploadCoverage": "codecov --file=coverage/coverage.json",
@@ -80,7 +80,6 @@
     "singleQuote": true,
     "tabWidth": 4,
     "useTabs": true,
-    "parser": "typescript",
     "printWidth": 120,
     "arrowParens": "always"
   }

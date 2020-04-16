@@ -20,9 +20,13 @@ export default factory(function App({ middleware: { theme } }) {
 		<div classes={[css.root]}>
 			<Menu />
 			<div>
-				<Outlet key="home" id="home" renderer={() => <Home />} />
-				<Outlet key="about" id="about" renderer={() => <About />} />
-				<Outlet key="profile" id="profile" renderer={() => <Profile username="Dojo User" />} />
+				<Outlet id="main">
+					{{
+						home: <Home />,
+						about: <About />,
+						profile: <Profile username="Dojo User" />
+					}}
+				</Outlet>
 			</div>
 		</div>
 	);

@@ -1,5 +1,5 @@
 const { describe, it } = intern.getInterface('bdd');
-import harness from '@dojo/framework/testing/harness';
+import renderer, { assertion } from '@dojo/framework/testing/renderer';
 import { tsx } from '@dojo/framework/core/vdom';
 import Outlet from '@dojo/framework/routing/Outlet';
 
@@ -13,34 +13,19 @@ import * as css from '../../src/App.m.css';
 
 describe('App', () => {
 	it('default renders correctly', () => {
-		const h = harness(() => <App />);
-		h.expect(() => (
+		const r = renderer(() => <App />);
+		const baseAssertion = assertion(() => (
 			<div classes={[css.root]}>
 				<Menu />
-				<div>
-					<Outlet key="home" id="home" renderer={() => <Home />} />
-					<Outlet key="about" id="about" renderer={() => <About />} />
-					<Outlet key="profile" id="profile" renderer={() => <Profile username="Dojo User" />} />
-				</div>
+				<Outlet id="main">
+					{{
+						home: <Home />,
+						about: <About />,
+						profile: <Profile username="Dojo User" />
+					}}
+				</Outlet>
 			</div>
 		));
-	});
-
-	it('home outlet renderer', () => {
-		const h = harness(() => <App />);
-		const renderer = h.trigger('@home', 'renderer');
-		h.expect(() => <Home />, () => renderer);
-	});
-
-	it('about outlet renderer', () => {
-		const h = harness(() => <App />);
-		const renderer = h.trigger('@about', 'renderer');
-		h.expect(() => <About />, () => renderer);
-	});
-
-	it('profile outlet renderer', () => {
-		const h = harness(() => <App />);
-		const renderer = h.trigger('@profile', 'renderer');
-		h.expect(() => <Profile username="Dojo User" />, () => renderer);
+		r.expect(baseAssertion);
 	});
 });
