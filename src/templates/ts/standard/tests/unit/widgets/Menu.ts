@@ -1,6 +1,6 @@
 const { describe, it } = intern.getInterface('bdd');
 import renderer, { assertion } from '@dojo/framework/testing/renderer';
-import { w } from '@dojo/framework/core/vdom';
+import { w, v } from '@dojo/framework/core/vdom';
 import Link from '@dojo/framework/routing/ActiveLink';
 import Header from '@dojo/widgets/header';
 
@@ -11,7 +11,7 @@ describe('Menu', () => {
 	it('default renders correctly', () => {
 		const r = renderer(() => w(Menu, {}));
 		const baseAssertion = assertion(() =>
-			w(Header, { heading: 'My Dojo App!', collapseWidth: 600 }, [
+			w(Header, {}, [
 				{
 					title: 'My Dojo App!',
 					actions: v('virtual', [

@@ -19,15 +19,13 @@ export default factory(function App({ middleware: { theme } }) {
 	return (
 		<div classes={[css.root]}>
 			<Menu />
-			<div>
-				<Outlet id="main">
-					{{
-						home: <Home />,
-						about: <About />,
-						profile: <Profile username="Dojo User" />
-					}}
-				</Outlet>
-			</div>
+			<Outlet id="main">
+				{{
+					home: <Home />,
+					about: <About />,
+					profile: <Profile username="Dojo User" />
+				}}
+			</Outlet>
 		</div>
 	);
 });

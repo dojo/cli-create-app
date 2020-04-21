@@ -18,14 +18,12 @@ export default factory(function App({ middleware: { theme } }) {
 	}
 	return v('div', { classes: [css.root] }, [
 		w(Menu, {}),
-		v('div', [
-			w(Outlet, { id: 'main' }, [
-				{
-					home: w(Home, {}),
-					about: w(About, {}),
-					profile: w(Profile, { username: 'Dojo User' })
-				}
-			])
+		w(Outlet, { id: 'main' }, [
+			{
+				home: w(Home, {}),
+				about: w(About, {}),
+				profile: w(Profile, { username: 'Dojo User' })
+			}
 		])
 	]);
 });

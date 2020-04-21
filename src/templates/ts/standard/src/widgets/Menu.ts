@@ -7,7 +7,7 @@ import * as css from './styles/Menu.m.css';
 const factory = create();
 
 export default factory(function Menu() {
-	return w(Header, { heading: 'My Dojo App!', collapseWidth: 600 }, [
+	return w(Header, {}, [
 		{
 			title: 'My Dojo App!',
 			actions: v('virtual', [
