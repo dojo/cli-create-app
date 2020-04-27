@@ -4,8 +4,7 @@
 }
 
 .link:hover {
-	color: #4db3ff;
-	background-color:#ccddee;
+	color: #ccddee;
 }
 
 .link {
@@ -14,10 +13,10 @@
 	text-transform: uppercase;
 	text-decoration: none;
 	padding: 18px;
-	color: black;
+	color: white;
 	box-sizing: border-box;
 }
 
 .selected {
-	color: darkorange;
+	color: lightskyblue;
 }
