@@ -44,8 +44,8 @@
     "watch": "run-p watch:ts \"build:static:** -- --watch\""
   },
   "devDependencies": {
-    "@dojo/cli": "~7.0.0",
-    "@dojo/scripts": "~3.1.0",
+    "@dojo/cli": "8.0.0-rc.1",
+    "@dojo/scripts": "~4.0.0",
     "@types/fs-extra": "^5.0.0",
     "@types/glob": "^7.1.0",
     "@types/mockery": "^1.4.29",
